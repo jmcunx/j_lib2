@@ -1,0 +1,83 @@
+.\" 
+.\" Copyright (c) 2005 2016 2007 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_expand_tab 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_expand_tab() - Expands TABs in a string, creating a new string
+
+.SH SYNOPSIS
+#include <sys/types.h>
+#include <j_lib2.h>
+
+int j2_expand_tab(int tab_size, size_t *out_size, char **out, char *in);
+
+.SH DESCRIPTION
+.BR j2_expand_tab()
+replaces all TABs with spaces.  The number of
+spaces per TAB is dependent upon tab_size.
+
+.SH ARGUMENTS
+.TP
+int tab_size
+Tab stop size, if 0 defaults to 8.
+.TP
+size_t *out_size
+current size of string 'out', should be equal to zero
+on the first call to this function.
+.TP
+char **out
+Pointer to a pointer to string out, the string should
+be (char *) NULL on first call.
+Memory will be allocated if either 'out_size' is 0
+or 'out' is NULL.
+Memory will also be reallocated automatically if necessary.
+.TP
+char *in
+pointer to the string to be expanded.
+
+.SH EXAMPLE
+.nf
+    {
+      char    *out_buf = (char *) NULL;
+      char    buf[80];
+      size_t  out_size;
+
+      j2_expand_tab(8, &out_size, &out_buf, buf);
+
+      /* when done with out_buf */
+      free(out_buf);
+      out_size = 0;
+      out_buf = (char *) NULL;
+    }
+.fi
+
+.SH RETURN VALUES
+.nf
+TRUE on success, FALSE on error (memory allocation).
+.fi
+
+.SH DIAGNOSTICS
+if string 'in' is a NULL pointer, string 'out'
+will be set to NULL
+.PP
+Before the first call argument 'out_size' should be set to zero
+and argument 'out' should be set to a NULL pointer.
+.PP
+Once complete, if 'out' is not equal to a NULL pointer
+you should free it when you are done using 'out'.
+.PP
+If argument 'in' is a NULL Pointer, 'out' will be set to NULL.

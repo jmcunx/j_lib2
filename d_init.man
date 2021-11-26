@@ -1,0 +1,54 @@
+.\" 
+.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_d_init 3 "$Date: 2018/07/02 23:05:32 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_d_init() - Initialize Date/Time Structure
+
+.SH SYNOPSIS
+#include <j_lib2.h>
+
+void j2_d_init(s_j2_datetime *d);
+
+.SH DESCRIPTION
+j2_d_init() - Initialize all elements of a Date/Time Structure
+
+.SH EXAMPLE
+.nf
+
+{
+  s_j2_datetime ds;
+
+  j2_d_init(&ds);
+}
+
+.fi
+.PP
+This is the format of structure s_j2_datetime:
+.nf
+    typedef struct
+    {
+      int month;   /* Month,           01 --12             */
+      int dd;      /* Day of Month,    01 -- [28/29/30/31] */
+      int yy;      /* two digit year,  00 -- 99            */
+      int yyyy;    /* four digit year, 0000 -- 9999        */
+      int hh;      /* Hour of the day, 00 -- 23            */
+      int minutes; /* minutes,         00 -- 59            */
+      int ss;      /* seconds,         00 -- 59            */
+      int mil;     /* milliseconds,    000 -- 999          */
+    } s_j2_datetime;
+.fi

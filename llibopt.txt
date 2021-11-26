@@ -1,0 +1,32 @@
+Lj_lib2
+Y
++bye_char.obj &
++bye_emb.obj &
++bye_last.obj &
++chg_char.obj &
++clr_str.obj &
++count_c.obj &
++ds_fmt.obj &
++d_gyyyy.obj &
++d_init.obj &
++d_isleap.obj &
++d_s2sec.obj &
++d_sec2s.obj &
++d_split.obj &
++d_to_sec.obj &
++d_valid.obj &
++embspace.obj &
++expand.obj &
++file_typ.obj &
++fix_delm.obj &
++fix_numr.obj &
++f_exist.obj &
++get_pgnm.obj &
++g_build.obj &
++is_numr.obj &
++is_space.obj &
++justleft.obj &
++rand.obj &
++rtw.obj &
++today.obj
+Lj_lib2.lst

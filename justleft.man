@@ -1,0 +1,51 @@
+.\" 
+.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_justleft 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_justleft() - Left Justifies a string
+
+.SH SYNOPSIS
+.nf
+#include <sys/types.h>
+#include <j_lib2.h>
+
+long int j2_justleft(char *s);
+.fi
+
+.SH DESCRIPTION
+j2_justleft() Left Justifies a string.
+Removes all leading White Space from a string.
+
+White Space in the "C" and "POSIX" locales,
+these are: space, form-feed ('\\f'), newline ('\\n'),
+carriage return ('\\r'), horizontal tab ('\\t'),
+and vertical tab ('\\v').
+
+.SH RETURNS
+String String Length on success OR -1 on Failure.
+When Failure, string is not modified.
+
+.SH DIAGNOSTICS
+Can only fail if not enough memory.
+.PP
+If string 's' is NULL, zero will be returned.
+.PP
+End of the string occurs at the first NULL character.
+
+.SH SEE-ALSO
+j_lib2(3)

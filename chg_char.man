@@ -1,0 +1,78 @@
+.\" 
+.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_chg_char 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_chg_char() - Change Character
+
+.SH SYNOPSIS
+.nf
+#include <sys/types.h>
+#include <j_lib2.h>
+.fi
+
+size_t j2_chg_char(char old, char new, char *s, ssize_t force);
+
+.SH DESCRIPTION
+j2_chg_char() changes all occurrences of a specific character
+to a different value
+
+.SH ARGUMENTS
+.TP
+char old
+The character to be replaced.
+
+.TP
+char new
+The value of the replacement character.
+
+.TP
+size_t force
+This should always be set to zero
+unless you want to replace all NULL
+characters.
+When replacing NULL characters you need to
+be sure of the actual buffer size.
+For character strings this should always
+be set to 0.
+
+.SH EXAMPLE
+Change all spaces to an underline '_'
+.nf
+
+{
+  char s[12];
+
+  strcpy(s,"aaa bbb ccc");
+
+  j2_chg_char(' ', '_', s, 0);
+}
+
+.fi
+String s will be changed to aaa_bbb_ccc
+
+.SH RETURN VALUES
+Number of characters changed
+
+.SH DIAGNOSTICS
+If you want to replace (char) NULL with another
+character you must specify argument 'force'
+with a value greater than 0.
+.PP
+Be very careful when using argument 'force',
+using it incorrectly WILL cause a crash.
+

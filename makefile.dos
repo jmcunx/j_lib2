@@ -1,0 +1,67 @@
+# Makefile for j_lib2 on MS-DOS
+#
+# need to be carefull with varables, they could
+# replace settings in AUTOEXEC.BAT
+#
+
+#--- Memory Model for m/s c7.0
+#MODEL=T
+MODEL=S
+#MODEL=C
+#MODEL=M
+#MODEL=L
+#MODEL=H
+
+###############################################################################
+# 16 bit area
+###############################################################################
+LOCAL_HOME=C:\C700\LOCAL
+J_PRODINC=$(LOCAL_HOME)\INCLUDE
+J_PRODLIB=$(LOCAL_HOME)\LIB
+
+OS=DOS
+SYS=/DMSDOS
+
+RM=COMMAND /C DEL
+CP=COMMAND /C COPY
+AR=LIB
+CC=CL
+CTAGS=ctags
+LINK=CL
+OBJ=.OBJ
+LIBE=.LIB
+LST=.LST
+
+#--- commor opts
+LINKFILE=$(MODEL)LIBOPT.TXT
+LIBFILE=$(MODEL)J_LIB2$(LIBE)
+
+CFLAGS=/c /O /A$(MODEL) /W3 /D$(OS) $(SYS)
+LFLAGS=/O /A$(MODEL) /W3 $(SYS) /D$(OS) /o
+LIBS=$(LIBFILE)
+
+J_ALLC=bye_char.c bye_emb.c bye_last.c chg_char.c clr_str.c count_c.c ds_fmt.c d_gyyyy.c d_init.c d_isleap.c d_s2sec.c d_sec2s.c d_split.c d_to_sec.c d_valid.c embspace.c expand.c file_typ.c fix_delm.c fix_numr.c f_exist.c get_pgnm.c g_build.c is_numr.c is_space.c justleft.c rand.c rtw.c today.c
+J_ALLO=bye_char$(OBJ) bye_emb$(OBJ) bye_last$(OBJ) chg_char$(OBJ) clr_str$(OBJ) count_c$(OBJ) ds_fmt$(OBJ) d_gyyyy$(OBJ) d_init$(OBJ) d_isleap$(OBJ) d_s2sec$(OBJ) d_sec2s$(OBJ) d_split$(OBJ) d_to_sec$(OBJ) d_valid$(OBJ) embspace$(OBJ) expand$(OBJ) file_typ$(OBJ) fix_delm$(OBJ) fix_numr$(OBJ) f_exist$(OBJ) get_pgnm$(OBJ) g_build$(OBJ) is_numr$(OBJ) is_space$(OBJ) justleft$(OBJ) rand$(OBJ) rtw$(OBJ) today$(OBJ)
+
+###############################################################################
+# do the work
+###############################################################################
+all:	$(J_ALLO) j_lib2.h
+	-$(RM) $(LIBFILE)
+	$(AR) @$(LINKFILE)
+
+install:	all
+	$(CP) j_lib2.h     $(J_PRODINC)\j_lib2.h
+	$(CP) $(LIBFILE) $(J_PRODLIB)\$(LIBFILE)
+
+clean:
+	-$(RM) TAGS
+	-$(RM) core
+	-$(RM) a.out
+	-$(RM) *.ilk
+	-$(RM) *.pdb
+	-$(RM) *$(OBJ)
+	-$(RM) *$(LIBE)
+	-$(RM) *$(LST)
+
+################################ END: Makefile #################################

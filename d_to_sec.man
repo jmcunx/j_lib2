@@ -1,0 +1,85 @@
+.\" 
+.\" Copyright (c) 1999 2001 2002 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_d_to_sec 3 "$Date: 2018/08/22 23:01:11 $" "JMC" "Local Library Function"
+
+.SH NAME
+
+j2_d_to_sec() - Converts a date to the # of Secs since Jan 1, 1970
+
+.SH SYNOPSIS
+.nf
+#include <time.h>
+#include <sys/types.h>
+#include <j_lib2.h>
+.fi
+
+time_t j2_d_to_sec(struct s_j2_datetime *d);
+
+.SH DESCRIPTION
+j2_d_to_sec() - Converts a date to the Number of seconds since
+Jan 1, 1970.  This is the traditional beginning of time for
+UN*X Systems.
+
+.SH EXAMPLE
+Display Date
+.nf
+
+{
+  char ds[30];
+  time_t secs_since;
+  struct s_j2_datetime d;
+
+  strcpy(ds,"09/08/99 03:05:00");
+
+  j2_ds_split(&d, ds, DATE_IN_FMT_U);
+
+  secs_since = j2_d_to_sec(&d);
+
+  fprintf(stdout,"%ld %02d/%02d/%04d %02d:%02d:%02d\n",
+          secs_since, 
+          d.month, d.dd, d.yyyy, 
+          d.hh, d.minutes, d.ss);
+}
+.fi
+
+.SH DIAGNOSTICS
+If the date is greater then a specific value
+an error occurs.  These limits are defined in
+j_lib2.h as:
+.nf
+   on 32 bit systems:
+       LIMIT_TO_SEC_YY 2038
+       LIMIT_TO_SEC_MM 1
+       LIMIT_TO_SEC_DD 18
+   on 64 bit systems:
+       LIMIT_TO_SEC_YY 9999
+       LIMIT_TO_SEC_MM 12
+       LIMIT_TO_SEC_DD 31
+.fi
+On most 32 bit systems the largest allowable date
+is Jan 18, 2038.
+These limits can may be set much higher
+on 64 bit systems.
+Note, some 32 bit Versions of OpenBSD/NetBSD
+releases >= 6.0 now use 64 bit limits for date/time.
+.PP
+If these values are changed you must
+rebuild the library after recompiling all modules.
+
+
+.SH RETURN VALUES
+-1 for error

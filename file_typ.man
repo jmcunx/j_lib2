@@ -1,0 +1,64 @@
+.\" 
+.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_file_typ 3 "$Date: 2018/07/02 23:06:16 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_file_typ() - Get file type
+
+.SH SYNOPSIS
+.nf
+#include <sys/types.h>
+#include <j_lib2.h>
+
+int j2_file_typ(char *f);
+.fi
+
+.SH DESCRIPTION
+j2_file_typ() Determines file type
+
+.SH RETURNS
+The following values are returned:
+.nf
+    value              meaning
+    -----------------  ---------------------------------
+    J2_BLOCK_SPECIAL   is a block special file
+    J2_CANT_GET        call aborted
+    J2_CHAR_SPECIAL    is a character special file
+    J2_DIRECTORY       is a Directory
+    J2_FIFO            is a FIFO
+    J2_PIPE            is a pipe
+    J2_REGULAR         is a regular file
+    J2_SOCKET          is a socket
+    J2_SYMB_LINK       is a Symbolic link
+    J2_UNKNOWN         succeeded, but file type unknown
+.fi
+
+.SH DIAGNOSTICS
+In some cases, even on UN*X systems, the following values
+may never be returned, even if the file is of that type:
+.nf
+    J2_BLOCK_SPECIAL
+    J2_CHAR_SPECIAL
+    J2_FIFO
+    J2_PIPE
+    J2_SOCKET
+    J2_SYMB_LINK
+.fi
+
+.SH SEE-ALSO
+j_lib2(3),
+stat(2)

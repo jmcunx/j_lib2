@@ -1,0 +1,50 @@
+/*
+ * Copyright (c) 1994 1995 1996 ... 2020 2021
+ *     John McCue <jmccue@jmcunx.com>
+ *
+ * Permission to use, copy, modify, and distribute this software for any
+ * purpose with or without fee is hereby granted, provided that the above
+ * copyright notice and this permission notice appear in all copies.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+ * WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+ * MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+ * ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+ * WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+ * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+ * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+ */
+
+#ifndef COHERENT
+#ifndef _MSDOS
+#include <sys/param.h>
+#endif
+#endif
+
+#include <string.h>
+#include "j_lib2.h"
+
+/*
+ * j2_d_get_yyyy() -- returns a 4 digit year
+ */
+#ifdef COHERENT
+int j2_d_get_yyyy(yy)
+  int yy;
+#else
+int j2_d_get_yyyy(int yy)
+#endif
+{
+  if (yy > 99)
+    return( (1900 + yy) );
+
+  if (yy > -1)
+    {
+      if (yy > CUTOFF_YY)
+	return( (CENTURY_CURRENT * 100) + yy );
+      else
+	return( (CENTURY_NEXT * 100) + yy );
+    }
+
+  return(yy);
+}
+

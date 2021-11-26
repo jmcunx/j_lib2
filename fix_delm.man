@@ -1,0 +1,71 @@
+.\" 
+.\" Copyright (c) 2001 2002 2003 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_fix_delm 3 "$Date: 2020/04/16 23:36:51 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_fix_delm() - Fix delimited string for use with strtok()
+
+.SH SYNOPSIS
+#include <j_lib2.h>
+.nf
+
+long int j2_fix_delm(char delimiter, char **new, char *original);
+.fi
+.SH DESCRIPTION
+fix_delm() reformats a delimited string, adding a space between
+null delimiters.
+
+For example, if a pipe delimited string has these values:
+.nf
+    "1|2||4|5||6"
+.fi
+it will be copied to string 'new' as:
+.nf
+    "1|2| |4|5| |6"
+.fi
+
+This allows strtok(3) to work as I expect it to work.
+.SH EXAMPLE
+.nf
+Sample Call:
+  {
+    char original[40];
+    char *new = (char *) NULL;
+
+    strcpy(original,"a||b|c|||d");
+
+    if (j2_fix_delm('|', &new, original) > 0)
+        {
+          printf("results: %s\\n",new);
+          free(new);
+        }
+  }
+.fi
+
+results: a| |b|c| | |d|
+.SH RETURN VALUES
+The size of new string 'new'.
+Returns 0 if a issue occurred or 
+if the string being fix is empty or NULL.
+
+.SH DIAGNOSTICS
+.PP
+Output String set to NULL if no memory or the string 
+passed in is NULL or empty.
+.PP
+You must explicitly free() the Output String when it is no longer needed.
+

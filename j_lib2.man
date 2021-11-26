@@ -1,0 +1,73 @@
+.\" 
+.\" Copyright (c) 1994 1995 1996 ... 2020 2021
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j_lib2 3 "$Date: 2020/11/17 19:31:40 $" "JMC" "Local Library Function"
+
+.SH NAME
+j_lib2 - Collection of miscellaneous and common functions
+
+.SH SYNOPSIS
+#include <sys/types.h>
+#include <j_lib2.h>
+
+.SH DESCRIPTION
+j_lib2 is a collection of various functions
+not included in the std lib.
+
+The following functions exist in this library:
+.nf
+   Function                Description
+   ----------------------- ----------------------------------------
+   j2_bye_emb(3)           remove embedded white space
+   j2_bye_last(3)          remove 'last' character on a string
+   j2_chg_char(3)          change a specific character
+   j2_clr_str(3)           clear a string
+   j2_count_c(3)           get count of a specific character
+   j2_date_is_valid(3)     Validates Date Data
+   j2_d_get_yyyy(3)        Determine the 4 digit year
+   j2_d_init(3)            Initialize Date/Time structure
+   j2_d_isleap(3)          Is the year a Leap Year ?
+   j2_dl_fmt(3)            Format a Date/Time Value for Display
+   j2_dl_split(3)          Format a Date/Time Value for Display
+   j2_dl_valid(3)          Validate Date/Time
+   j2_ds_fmt(3)            Format a Date/Time Value for Display
+   j2_ds_split(3)          Split a Date/Time string
+   j2_d_to_sec(3)          Converts a date to the # of seconds 
+   j2_expand_tab(3)        Expand tabs to spaces
+   j2_f_exist(3)           see if a file exists
+   j2_file_typ(3)          determine file type
+   j2_fix_numr(3)          fix number format
+   j2_get_build(3)         Returns a string with Library Build Date
+   j2_get_prgname(3)       get program name from argv
+   j2_getseed(3)           Get a seed value for rand()
+   j2_is_all_spaces(3)     is a string all white space ?
+   j2_is_all_spaces(3)     is a string all white space ?
+   j2_is_numr(3)           Is the string all numeric ?
+   j2_is_space_embedded(3) Does a string any embedded white space ?
+   j2_justleft(3)          left justifies a string
+   j2_randrange(3)         Get a random number between a Range
+   j2_rtw(3)               remove trailing white space
+   j2_secs_to_str(3)       Converts seconds to a "run time" string
+   j2_strlwr(3)            change a string to lower case
+   j2_str_to_secs(3)       Converts a "run time" string to Seconds
+   j2_strupr(3)            change a string to upper case
+   j2_today(3)             get current system date/time
+.fi
+
+.SH DIAGNOSTICS
+See individual man pages for routine specific information.
+On some UN*X systems you may also need to link with the
+math library (-lm).

@@ -1,0 +1,56 @@
+## 
+## Copyright (c) 1994 1995 1996 ... 2020 2021
+##     John McCue <jmccue@jmcunx.com>
+## 
+## Permission to use, copy, modify, and distribute this software for any
+## purpose with or without fee is hereby granted, provided that the above
+## copyright notice and this permission notice appear in all copies.
+## 
+## THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+## WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+## MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+## ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+## WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+## ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+## OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+##
+## Used to translate Coherent Manual names to
+## a 'modern' manual output name
+## and in install if manual files to
+## other UN*X files
+#
+## Coherent has limited file name lengths
+
+bye_char|j2_bye_char
+bye_emb|j2_bye_emb
+bye_last|j2_bye_last
+chg_char|j2_chg_char
+clr_str|j2_clr_str
+d_isleap|j2_d_isleap
+ds_fmt|j2_ds_fmt
+embspace|j2_is_space_embedded
+expand|j2_expand_tab
+f_exist|j2_f_exist
+file_typ|j2_file_typ
+fix_delm|j2_fix_delm
+fix_numr|j2_fix_numr
+get_pgnm|j2_get_prgname
+is_numr|j2_is_numr
+is_space|j2_is_all_spaces
+j_lib2|j_lib2
+justleft|j2_justleft
+rtw|j2_rtw
+g_build|j2_get_build
+strlwr|j2_strlwr
+strupr|j2_strupr
+today|j2_today
+d_init|j2_d_init
+count_c|j2_count_c
+d_gyyyy|j2_d_get_yyyy
+d_valid|j2_date_is_valid
+d_split|j2_ds_split
+d_sec2s|j2_secs_to_str
+d_s2sec|j2_str_to_secs
+d_to_sec|j2_d_to_sec
+getseed|j2_getseed
+randrange|j2_randrange

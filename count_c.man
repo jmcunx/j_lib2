@@ -1,0 +1,47 @@
+.\" 
+.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_count_c 3 "$Date: 2018/07/02 23:05:10 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_count_c() - Count Character
+
+.SH SYNOPSIS
+#include <j_lib2.h>
+
+int j2_count_c(char c, char *s);
+
+.SH DESCRIPTION
+j2_count_c() counts the number of a specific character in a string.
+
+.SH EXAMPLE
+Count the number of spaces in string s
+.nf
+
+{
+  char s[12];
+  int num_spaces;
+
+  strcpy(s,"aaa bbb ccc");
+
+  num_spaces = j2_count_c(' ', s);
+}
+
+.fi
+num_spaces is set = to 2.
+
+.SH RETURN VALUES
+Number of characters found

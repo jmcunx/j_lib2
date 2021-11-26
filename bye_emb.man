@@ -1,0 +1,62 @@
+.\" 
+.\" Copyright (c) 2014 2015 2016 2017 2018 
+.\"     John McCue <jmccue@jmcunx.com>
+.\" 
+.\" Permission to use, copy, modify, and distribute this software for any
+.\" purpose with or without fee is hereby granted, provided that the above
+.\" copyright notice and this permission notice appear in all copies.
+.\" 
+.\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
+.\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
+.\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
+.\" ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES
+.\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
+.\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
+.\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+.TH j2_bye_emb 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
+
+.SH NAME
+j2_bye_emb() - Bye Embedded Space
+
+.SH SYNOPSIS
+.nf
+#include <sys/types.h>
+#include <j_lib2.h>
+
+long int j2_bye_emb(char *s);
+.fi
+
+.SH DESCRIPTION
+.BR j2_bye_emb()
+Removes all embedded white space from a string,
+returning number of characters in the new string.
+All white space characters will also be converted
+to a space.
+
+.SH EXAMPLE
+.nf
+Example, if call using this string:
+    "      field 1  |field   2|  field 3   |   "
+will convert it to:
+    " field 1 |field 2| field 3 | "
+,fi
+.nf
+
+{
+  char *s = "      field 1  |field   2|  field 3   |   ";
+  int str_size;
+
+  str_size = j2_bye_emb(s);
+}
+.fi
+
+.SH DIAGNOSTICS
+On error, the original string is NOT modified.
+
+.SH RETURN VALUES
+Size of the string after removing all embedded
+white characters, -1 on error.
+
+.SH SEE-ALSO
+j_lib2(3)
