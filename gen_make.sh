@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 ############################################################################
-# Copyright (c) 2011 2012 2013 2014 2015 2016 2017 2018 
+# Copyright (c) 2011 2012 2013 ... 2020 2021
 #     John McCue <jmccue@jmcunx.com>
 # 
 # Permission to use, copy, modify, and distribute this software for any
