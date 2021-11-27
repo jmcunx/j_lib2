@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 2021
+ * Copyright (c) 2020 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -24,11 +24,7 @@
 
 /* j2_get_build() - show build date/time */
 
-#ifdef COHERENT
-char *j2_get_build()
-#else
 char *j2_get_build(void)
-#endif
 {
   static int i = FALSE;
   static char s[SMAX];
@@ -37,11 +33,7 @@ char *j2_get_build(void)
     {
       i = TRUE;
       memset(s, JLIB2_CHAR_NULL, SMAX);
-#ifdef SNPRINTF
       SNPRINTF(s, (SMAX - 1), "%s %s", __DATE__, __TIME__);
-#else
-      sprintf(s, "%s %s", __DATE__, __TIME__);
-#endif
     }
   return(s);
 } 

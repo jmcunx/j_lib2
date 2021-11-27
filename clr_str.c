@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2017 2018 
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -20,9 +20,9 @@
 
 #include "j_lib2.h"
 
-/*****************************************************************************
-* j2_clr_str() -- Clears a string
-*****************************************************************************/
+/*
+ * j2_clr_str() -- Clears a string and ensure it ends with NULL
+ */
 long int j2_clr_str(char *s, char c, int size)
   
 {
@@ -34,5 +34,5 @@ long int j2_clr_str(char *s, char c, int size)
 
   return((long int) strlen(s));
 
-} /* end: j2_clr_str() */
+}
 

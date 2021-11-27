@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -29,12 +29,7 @@
 /*
  * j2_f_exist() -- determines if a file exists
  */
-#ifdef COHERENT
-int j2_f_exist(file_name)
-  char *file_name;
-#else
 int j2_f_exist(char *file_name)
-#endif
 
 {
   if (file_name == (char *) NULL)
@@ -53,5 +48,5 @@ int j2_f_exist(char *file_name)
     return (FALSE);
 #endif
 
-} /* j2_f_exist() */
+}
 

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -21,16 +21,11 @@
 #include "j_lib2.h"
 
 /*
- * j2_is_space_emdedded() -- checks to see if a string has embedded white 
- *                           space.  leading spaces is considered embedded 
- *                           spaces
+ * j2_is_space_emdedded() -- checks to see if a string has embedded
+ *                           white space.  Leading spaces is
+ *                           considered embedded spaces
  */
-#ifdef COHERENT
-int j2_is_space_embedded(s)
-  char *s;
-#else
 int j2_is_space_embedded(char *s)
-#endif
 {
   unsigned int i; 
 
@@ -61,4 +56,4 @@ int j2_is_space_embedded(char *s)
 
   return((int) FALSE);
 
-} /* end: j2_is_space_embedded() */
+}

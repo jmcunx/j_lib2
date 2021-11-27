@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <string.h>
@@ -27,12 +25,7 @@
 /*
  * j2_d_init() -- Initializes the split structure
  */
-#ifdef COHERENT
-void j2_d_init(d)
-  struct s_j2_datetime *d;
-#else
 void j2_d_init(struct s_j2_datetime *d)
-#endif
 {
   d->month   = 0;
   d->dd      = 0;

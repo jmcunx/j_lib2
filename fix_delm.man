@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2001 2002 2003 ... 2017 2018 
+.\" Copyright (c) 2001 2002 2003 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_fix_delm 3 "$Date: 2020/04/16 23:36:51 $" "JMC" "Local Library Function"
-
+.TH j2_fix_delm 3 "2020/04/16" "JMC" "Local Library Function"
 .SH NAME
 j2_fix_delm() - Fix delimited string for use with strtok()
-
 .SH SYNOPSIS
 #include <j_lib2.h>
 .nf
@@ -61,11 +58,11 @@ results: a| |b|c| | |d|
 The size of new string 'new'.
 Returns 0 if a issue occurred or 
 if the string being fix is empty or NULL.
-
 .SH DIAGNOSTICS
 .PP
-Output String set to NULL if no memory or the string 
+Output String is set to NULL on memory allocation issues or the string
 passed in is NULL or empty.
 .PP
-You must explicitly free() the Output String when it is no longer needed.
+You must explicitly free() the Output String when it is no longer
+needed.
 

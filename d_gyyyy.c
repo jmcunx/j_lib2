@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <string.h>
@@ -27,12 +25,7 @@
 /*
  * j2_d_get_yyyy() -- returns a 4 digit year
  */
-#ifdef COHERENT
-int j2_d_get_yyyy(yy)
-  int yy;
-#else
 int j2_d_get_yyyy(int yy)
-#endif
 {
   if (yy > 99)
     return( (1900 + yy) );

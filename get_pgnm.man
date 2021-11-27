@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2016 2017 2018 
+.\" Copyright (c) 2016 2017 2018 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_get_prgname 3 "$Date: 2020/11/22 23:08:05 $" "JMC" "Local Library Function"
-
+.TH j2_get_prgname 3 "2020/11/22" "JMC" "Local Library Function"
 .SH NAME
 j2_get_prgname() - Returns program name
-
 .SH SYNOPSIS
 .nf
 #include <sys/types.h>
@@ -26,7 +23,6 @@ j2_get_prgname() - Returns program name
 
 char *j2_get_prgname(char *fname, char *defname);
 .fi
-
 .SH DESCRIPTION
 j2_get_prgname() will strip the path from a File Name
 string returning just the File Name portion.
@@ -39,11 +35,9 @@ Operating Systems may not assign argv[0].
 But this can be useful for Operating Systems
 that do not have basename(3) in the
 Standard Library.
-
 .SH RETURNS
-File Name of the program or value of 'defname' if
-the File Name is NULL.
-
+File Name of the program (or File) without its path OR value
+of 'defname' if the File Name is NULL.
 .SH SEE-ALSO
 j_lib2(3),
 basename(3)

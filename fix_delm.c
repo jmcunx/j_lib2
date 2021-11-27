@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2001 2002 2003 ... 2020 2021
+ * Copyright (c) 2001 2002 2003 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -21,18 +21,11 @@
 #include "j_lib2.h"
 
 /*
- * j2_fix_delm() -- generates a new string to allow strtok(3)
- *                  to work correctly. strtok(3) has problems
- *                  when delimiters are next to each other.
+ * j2_fix_delm() -- generates a new string to allow strtok(3) to work
+ *                  correctly. strtok(3) has problems when delimiters
+ *                  are next to each other.
  */
-#ifdef COHERENT
-long int j2_fix_delm(delm, fixed, buf)
-  char delm;
-  char **fixed;
-  char *buf;
-#else
 long int j2_fix_delm(char delm, char **fixed, char *buf)
-#endif
 {
   size_t sz, i, j;
 
@@ -65,4 +58,4 @@ long int j2_fix_delm(char delm, char **fixed, char *buf)
 
   return((long int)strlen((*fixed)));
 
-} /* j2_fix_delm() */
+}

@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2020 2021
+.\" Copyright (c) 2020 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,25 +13,20 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_randrange 3 "$Date: 2020/11/18 00:19:43 $" "JMC" "Local Library Function"
-
+.TH j2_randrange 3 "2020/11/18" "JMC" "Local Library Function"
 .SH NAME
 j2_randrange() - Get a random number between a Range
-
 .SH SYNOPSIS
 .nf
 #include <j_lib2.h>
 
 unsigned int j2_randrange(unsigned int low, unsigned int max);
 .fi
-
 .SH DESCRIPTION
 j2_randrange() Return a Random Integer within a range.
 
 Will return a Random Number between and including
 values 'low' and 'max'.
-
 .SH DIAGNOSTICS
 If required, this function will seed the random
 number generator for you using j2_getseed(3).
@@ -39,10 +34,8 @@ number generator for you using j2_getseed(3).
 On BSD Systems, arc4random(3) is used instead of rand(3)
 by this Function.
 This means there is no need to seed.
-
 .SH RETURNS
 The Random Number as an unsigned int.
-
 .SH SEE-ALSO
 arc4random(3),
 j2_getseed(3),

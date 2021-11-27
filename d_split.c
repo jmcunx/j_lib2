@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -32,14 +30,7 @@
 /*
  * j2_ds_date_time() -- break to date/time portion
  */
-#ifdef COHERENT
-void j2_ds_date_time(date_part, time_part, date_time)
-  char **date_part;
-  char **time_part;
-  char *date_time;
-#else
 void j2_ds_date_time(char **date_part, char **time_part, char *date_time)
-#endif
 {
   char *all, *t;
   int i, sp;
@@ -110,13 +101,7 @@ void j2_ds_date_time(char **date_part, char **time_part, char *date_time)
  * j2_time_split() -- splits a time string into a structure
  *                    can adjust for PM
  */
-#ifdef COHERENT
-int j2_time_split(d, t_string)
-  struct s_j2_datetime *d;
-  char *t_string;
-#else
 int j2_time_split(struct s_j2_datetime *d, char *t_string)
-#endif
 {
   char hh[3], mm[3], ss[3], ml[4];
   double sec;
@@ -256,15 +241,7 @@ int j2_time_split(struct s_j2_datetime *d, char *t_string)
 /*
  * j2_date_split_fmt() -- splits date based on a delimiter
  */
-#ifdef COHERENT
-int j2_date_split_fmt(d, dstr, delim, date_type)
-  struct s_j2_datetime *d;
-  char *dstr;
-  char *delim;
-  int date_type;
-#else
 int j2_date_split_fmt(struct s_j2_datetime *d, char *dstr, char *delim, int date_type)
-#endif
 {
   char yy[SIZ_YY];
   char *f1 = (char *) NULL;
@@ -351,11 +328,7 @@ int j2_date_split_fmt(struct s_j2_datetime *d, char *dstr, char *delim, int date
     {
       if ((d->yyyy < 10000) && (d->yyyy > -1))
 	{
-#ifdef SNPRINTF
 	  SNPRINTF(fmt_yyyy, SIZ_YYYY, "%04d", d->yyyy);
-#else
-	  sprintf(fmt_yyyy, "%04d", d->yyyy);
-#endif
 	  d->yy = atoi((&(fmt_yyyy[2])));
 	}
       else
@@ -375,14 +348,7 @@ int j2_date_split_fmt(struct s_j2_datetime *d, char *dstr, char *delim, int date
 /*
  * j2_date_split() -- splits a date string into a structure
  */
-#ifdef COHERENT
-int j2_date_split(d, d_string, fmt)
-  struct s_j2_datetime *d;
-  char *d_string;
-  int fmt;
-#else
 int j2_date_split(struct s_j2_datetime *d, char *d_string, int fmt)
-#endif
 {
 
   char mm[3], dd[3], yy[3], yyyy[5];
@@ -476,14 +442,7 @@ int j2_date_split(struct s_j2_datetime *d, char *d_string, int fmt)
 /*
  * j2_ds_split() -- split a date/time string
  */
-#ifdef COHERENT
-int j2_ds_split(d, date_time, fmt)
-  struct s_j2_datetime *d;
-  char *date_time;
-  int fmt;
-#else
 int j2_ds_split(struct s_j2_datetime *d, char *date_time, int fmt)
-#endif
 {
 
   char *datestr = (char *) NULL;
@@ -524,22 +483,11 @@ int j2_ds_split(struct s_j2_datetime *d, char *date_time, int fmt)
 /*
  * j2_dl_split() -- splits a "long" date time into its components,
  */
-#ifdef COHERENT
-int j2_dl_split(d, date_num, fmt)
-  struct s_j2_datetime *d;
-  long date_num;
-  int fmt;
-#else
 int j2_dl_split(struct s_j2_datetime *d, long date_num, int fmt)
-#endif
 {
   char date_time[DATE_TIME_SIZE_STR];
 
-#ifdef SNPRINTF
   SNPRINTF(date_time, DATE_TIME_SIZE_STR, "%ld", date_num);
-#else
-  sprintf(date_time, "%ld", date_num);
-#endif
 
   return(j2_ds_split(d, date_time, fmt));
 

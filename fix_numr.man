@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\" Copyright (c) 1994 1995 1996 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_fix_numr 3 "$Date: 2018/07/02 23:06:16 $" "JMC" "Local Library Function"
-
+.TH j2_fix_numr 3 "2018/07/02" "JMC" "Local Library Function"
 .SH NAME
 j2_fix_numr() - Reformats a numeric item
-
 .SH SYNOPSIS
 #include <j_lib2.h>
 
@@ -30,7 +27,6 @@ int j2_fix_numr(char *buffer, char thousand_char, char decimal_point);
 .SH DESCRIPTION
 fix_numr() reformats a numeric item.  thousand_char and decimal_point
 must be supplied.
-
 .SH EXAMPLE
 
 .nf
@@ -49,20 +45,22 @@ Assuming the thousand_char is a ',' and the decimal point
 is a '.' listed below are some example call results.
 .nf
 
-    In String   Out String  Comment
-    ----------- ----------- ------------------------------------
-    "   123.45" "123.45"    Successful
-    "  123.45-" "-123.45"   Successful
-    "1,234.56-" "-1234.56"  Successful
-    "  -1     " "-1"        Successful
-    "   ccc"    "   ccc"    Returns FALSE, not numeric
-    "12 234"    "12 234"    Returns FALSE, not numeric
-    "123.45.5"  "123.45.5"  Returns FALSE, not numeric
+    In String    Out String  Comment
+    ------------ ----------- ------------------------------------
+    "   123.45"  "123.45"    Successful
+    "  123.45-"  "-123.45"   Successful
+    "1,234.56-"  "-1234.56"  Successful
+    "1,,234.56-" "-1234.56"  Successful (yes considered OK)
+    "  -1     "  "-1"        Successful
+    "   ccc"     "   ccc"    Returns FALSE, not numeric
+    "12 234"     "12 234"    Returns FALSE, not numeric
+    "123.45.5"   "123.45.5"  Returns FALSE, not numeric
+    "-123.45-"   "-123.45-"  Returns FALSE, too many '-'
 .fi
 
 .SH RETURN VALUES
-TRUE if the item is numeric, FALSE if NOT numeric.
-String is not modified if it is not numeric.
+TRUE if the item is numeric, FALSE if invalid.
+String is not modified if it is invalid.
 
 .SH DIAGNOSTICS
 This routine does not care where the thousand

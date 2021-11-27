@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2014 2015 2016 2017 2018 
+.\" Copyright (c) 2014 2015 2016 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_bye_emb 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
-
+.TH j2_bye_emb 3 "2018/03/07" "JMC" "Local Library Function"
 .SH NAME
 j2_bye_emb() - Bye Embedded Space
-
 .SH SYNOPSIS
 .nf
 #include <sys/types.h>
@@ -26,21 +23,19 @@ j2_bye_emb() - Bye Embedded Space
 
 long int j2_bye_emb(char *s);
 .fi
-
 .SH DESCRIPTION
 .BR j2_bye_emb()
 Removes all embedded white space from a string,
 returning number of characters in the new string.
 All white space characters will also be converted
 to a space.
-
 .SH EXAMPLE
 .nf
 Example, if call using this string:
     "      field 1  |field   2|  field 3   |   "
 will convert it to:
     " field 1 |field 2| field 3 | "
-,fi
+.fi
 .nf
 
 {

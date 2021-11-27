@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -23,12 +23,7 @@
 /*
  * j2_strupr() -- converts a string to upper case
  */
-#ifdef COHERENT
-void j2_strupr(s)
-  char *s;
-#else
 void j2_strupr(char *s)
-#endif
 {
   if (s != (char *) NULL)
     {

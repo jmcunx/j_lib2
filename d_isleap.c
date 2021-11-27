@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <string.h>
@@ -27,12 +25,7 @@
 /*
  * j2_d_isleap() -- Leap Year, True or False
  */
-#ifdef COHERENT
-int j2_d_isleap(year_yyyy)
-  int year_yyyy;
-#else
 int j2_d_isleap(int year_yyyy)
-#endif
 {
 
   if ((year_yyyy % 4) == 0)
@@ -46,4 +39,3 @@ int j2_d_isleap(int year_yyyy)
   return(FALSE);
 
 }
-

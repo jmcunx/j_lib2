@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -27,12 +27,7 @@
 /*
  * j2_file_typ() -- Determines File Type
  */
-#ifdef COHERENT
-int j2_file_typ(file_name)
-  char *file_name;
-#else
 int j2_file_typ(char *file_name)
-#endif
 
 {
 
@@ -92,4 +87,4 @@ int j2_file_typ(char *file_name)
 
   return(file_type);
 
-} /* end: j2_file_typ() */
+}

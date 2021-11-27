@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -24,12 +24,7 @@
 /*
  * j2_rtw() -- removes trailing white space
  */
-#ifdef COHERENT
-long int j2_rtw(buffer)
-  char *buffer;
-#else
 long int j2_rtw(char *buffer)
-#endif
 
 {
   char *last_non_space;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -21,13 +21,7 @@
 /*
  * j2_count_c() -- counts the number of a specific character in a string
  */
-#ifdef COHERENT
-int j2_count_c(c, s)
-  char c;
-  char *s;
-#else
-int j2_count_c(char c, char *s)
-#endif
+long int j2_count_c(char c, char *s)
 {
   int i = 0;
 

@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\" Copyright (c) 1994 1995 1996 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,20 +13,15 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_strlwr 3 "$Date: 2018/07/02 23:06:32 $" "JMC" "Local Library Function"
-
+.TH j2_strlwr 3 "2018/07/02" "JMC" "Local Library Function"
 .SH NAME
 j2_strlwr() - String to lowercase
-
 .SH SYNOPSIS
 #include <j_lib2.h>
 
 void j2_strlwr(char *s);
-
 .SH DESCRIPTION
 j2_strlwr() converts all letters in the string
 to lowercase.
-
 .SH RETURN VALUES
 none

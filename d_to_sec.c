@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1999 2001 2002 ... 2020 2021
+ * Copyright (c) 1999 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -30,12 +30,7 @@
 /*
  * j2_count_years()
  */
-#ifdef COHERENT
-time_t j2_count_years(year)
-  int year;
-#else
 time_t j2_count_years(int year)
-#endif
 
 {
   int i, days = 0;
@@ -55,14 +50,7 @@ time_t j2_count_years(int year)
 /*
  * j2_count_days()
  */
-#ifdef COHERENT
-time_t j2_count_days(year, month, day)
-  int year;
-  int month;
-  int day;
-#else
 time_t j2_count_days(int year, int month, int day)
-#endif
 
 {
   time_t sec = (time_t) 0;
@@ -103,14 +91,7 @@ time_t j2_count_days(int year, int month, int day)
 /*
  * j2_d_to_sec() -- converts date/time to seconds since Jan 1, 1970
  */
-#ifdef COHERENT
-time_t j2_count_days(year, month, day)
-  int year;
-  int month;
-  int day;
-#else
 long int j2_d_to_sec(struct s_j2_datetime *d)
-#endif
 
 {
   time_t secs_since;

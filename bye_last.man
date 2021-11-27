@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\" Copyright (c) 1994 1995 1996 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_bye_last 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
-
+.TH j2_bye_last 3 "2018/03/07" "JMC" "Local Library Function"
 .SH NAME
 j2_bye_last() - Bye Last character
-
 .SH SYNOPSIS
 .nf
 #include <sys/types.h>
@@ -39,7 +36,6 @@ Is equivalent to j2_bye_last(s, '\\n');
 
 .BR j2_bye_ctlm()
 Is equivalent to j2_bye_last(s, '\\r');
-
 .SH EXAMPLE
 Removes the new-line character from the end of the string
 if it is there.
@@ -52,7 +48,6 @@ if it is there.
   str_size = j2_bye_last(s, '\\n');
 }
 .fi
-
 .SH DIAGNOSTICS
 If processing DOS Files and you want
 to remove 'DOS type new line', do:
@@ -66,12 +61,10 @@ j2_bye_nl(3) and j2_bye_ctlm(3)
 since j2_rtw(3) will remove
 all trailing white space.
 .PP
-Only will remove the one character
+Will remove just the one character at the end of the string.
 .PP
 End of the string occurs at the first NULL character.
-
 .SH RETURNS
 Size of the String after removing the 'last' character
-
 .SH SEE-ALSO
 j_lib2(3)

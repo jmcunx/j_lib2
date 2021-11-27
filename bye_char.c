@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif 
 #endif 
 
 #include <stdio.h>
@@ -30,13 +28,7 @@
 /*
  * j2_bye_char() -- removes all occurances of a specific a char from a string
  */
-#ifdef COHERENT
-int j2_bye_char(buffer, c)
-  char *buffer;
-  char c;
-#else
 int j2_bye_char(char *buffer, char c)
-#endif
 
 {
   char *temp_str;

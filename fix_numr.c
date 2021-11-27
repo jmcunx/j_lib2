@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -25,7 +25,7 @@
 /*
  * j2_fix_numr() -- make sure the string is numeric and if so move the
  *                  trailing minus to the beginning of the string
- *                  removing the thousand character
+ *                  removing the thousand character(s)
  */
 int j2_fix_numr(char *buffer, char thousand, char decimal_point)
 
@@ -105,23 +105,11 @@ int j2_fix_numr(char *buffer, char thousand, char decimal_point)
   /* remove thousand characters */
   if (ct > 0)
     {
-      b = strdup(w);
-      cd = strlen(w);
-      memset(w, JLIB2_CHAR_NULL, (unsigned int) cd);
-      if (w == (char *) NULL)
-      	{
+      if (j2_bye_char(w, thousand) < 0)
+	{
       	  rc = FALSE;
-      	  goto leave_j2_fix_numr;
-      	}
-      for (cd = 0, ct = 0; b[cd] != JLIB2_CHAR_NULL; cd++)
-        {
-          if (b[cd] == thousand)
-            continue;
-          w[ct] = b[cd];
-          ct++;
-        }
-      free(b);
-      b = (char *) NULL;
+	  goto leave_j2_fix_numr;
+	}
     }
 
   if (count_neg < 1)
@@ -136,7 +124,7 @@ leave_j2_fix_numr:
   if (rc == TRUE)
     {
       cd = strlen(buffer);
-      memset(buffer, JLIB2_CHAR_NULL, (unsigned int) cd);
+      memset(buffer, JLIB2_CHAR_NULL, cd);
       if (count_neg < 1)
 	strcpy(buffer, w);
       else
@@ -151,4 +139,4 @@ leave_j2_fix_numr:
     free(w);
   return(rc);
 
-} /* j2_fix_numr() */
+}

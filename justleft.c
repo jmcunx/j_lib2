@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -14,10 +14,8 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <string.h>
@@ -27,15 +25,10 @@
 #include "j_lib2.h"
 
 /*
- * j2_justleft() -- left justifies a string (removes beginning white space)
- *                  returns -1 on failure, strlen on success
+ * j2_justleft() -- left justifies a string (removes beginning white
+ *                  space) returns -1 on failure, strlen on success
  */
-#ifdef COHERENT
-long int j2_justleft(s)
-  char *s;
-#else
 long int j2_justleft(char *s)
-#endif
 
 {
   char *temp_s;
@@ -84,5 +77,4 @@ long int j2_justleft(char *s)
   
   return((long int) strlen(s));
 
-} /* end: j2_justleft() */
-
+}

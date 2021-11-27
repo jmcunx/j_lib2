@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -23,15 +23,7 @@
  * j2_chg_char() -- replaces all occurrences of one character 
  *                  with another char
  */
-#ifdef COHERENT
-long int j2_chg_char(old, new, s, force_size)
-  char old;
-  char new;
-  char *s;
-  SSIZE_T force_size;
-#else
 long int j2_chg_char(char old, char new, char *s, SSIZE_T force_size)
-#endif
 
 {
   size_t found = (size_t) 0;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 2017 2018 ... 2020 2021 
+ * Copyright (c) 2016 2017 2018 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -21,18 +21,13 @@
 #include "j_lib2.h"
 
 /*
- * j2_get_prgname() -- return filename or default name
- *                     basename() not used, some OS 
- *                     systems do not have basename()
- *                     so this can be a basename() replacement
+ * j2_get_prgname() -- return filename or default name.
+ *
+ *                     basename() is not used.  Some OS Systems do not
+ *                     have basename() so this can be a basename()
+ *                     replacement
  */
-#ifdef COHERENT
-char *j2_get_prgname(argv_0, default_name)
-  char *argv_0;
-  char *default_name;
-#else
 char *j2_get_prgname(char *argv_0, char *default_name)
-#endif
 
 {
   int i = 0, j = 0;

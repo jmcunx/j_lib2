@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021 
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -23,13 +23,7 @@
  * j2_bye_last() -- When the last byte = x, replaces it with NULL 
  *                  and returns string length
  */
-#ifdef COHERENT
-long int j2_bye_last(x, lastc)
-  char *x;
-  char lastc;
-#else
 long int j2_bye_last(char *x, char lastc)
-#endif
 
 {
   int i;

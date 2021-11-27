@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -53,18 +51,15 @@
 /*
  * j2_today() -- get todays date
  */
-#ifdef COHERENT
-char *j2_today(dt)
-  struct s_j2_datetime *dt;
-#else
 char *j2_today(struct s_j2_datetime *dt)
-#endif
 
 {
 
   static char fmt[SFMT];
   struct tm     *str_tm;
 
+  memset(fmt, JLIB2_CHAR_NULL, SFMT);
+  
 #ifdef BSD_TODAY
   struct timeval tp;
   struct timezone tzp;
@@ -106,15 +101,9 @@ char *j2_today(struct s_j2_datetime *dt)
       (dt->minutes < 100)   &&
       (dt->ss      < 100))  /* prevent overflow */
     {
-#ifdef SNPRINTF
       SNPRINTF(fmt,SFMT,"%04d%02d%02d%02d%02d%02d",
 	      dt->yyyy, dt->month,   dt->dd, 
 	      dt->hh,   dt->minutes, dt->ss);
-#else
-      sprintf(fmt,"%04d%02d%02d%02d%02d%02d",
-	      dt->yyyy, dt->month,   dt->dd, 
-	      dt->hh,   dt->minutes, dt->ss);
-#endif
     }
   
   return(fmt);

@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\" Copyright (c) 1994 1995 1996 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_is_numr 3 "$Date: 2018/03/07 01:40:04 $" "JMC" "Local Library Function"
-
+.TH j2_is_numr 3 "2018/03/07" "JMC" "Local Library Function"
 .SH NAME
 j2_is_numr() - Is the string numeric ?
-
 .SH SYNOPSIS
 .nf
 #include <sys/types.h>
@@ -26,14 +23,11 @@ j2_is_numr() - Is the string numeric ?
 
 int j2_is_numr(char *s);
 .fi
-
 .SH DESCRIPTION
 j2_is_numr() determines if a string contains 
 all numeric characters.
-
 .SH RETURNS
 TRUE or FALSE
-
 .SH DIAGNOSTICS
 If the string contains any Decimal Points 
 and/or Thousand Characters FALSE will be returned.

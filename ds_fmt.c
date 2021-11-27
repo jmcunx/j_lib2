@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -41,15 +39,7 @@
  *                FALSE if the date does not look valid.
  *                In type is used to determine if US or European
  */
-#ifdef COHERENT
-int j2_ds_fmt(date_format, date_s, out_type, fmt)
-  char *date_format;
-  char *date_s;
-  int out_type;
-  int fmt;
-#else
 int j2_ds_fmt(char *date_format, char *date_s, int out_type, int fmt)
-#endif
 {
   struct s_j2_datetime d;
 
@@ -62,72 +52,34 @@ int j2_ds_fmt(char *date_format, char *date_s, int out_type, int fmt)
   switch (out_type)
     {
     case DATE_FMT_US_2: /* MM/DD/YY */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 9, "%02d%c%02d%c%02d",
 	      d.month,DATE_SEPERATOR,d.dd,DATE_SEPERATOR,d.yy);
-#else
-      sprintf(date_format, "%02d%c%02d%c%02d",
-	      d.month,DATE_SEPERATOR,d.dd,DATE_SEPERATOR,d.yy);
-#endif
       break;
     case DATE_FMT_US_4: /* MM/DD/YYYY */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 11, "%02d%c%02d%c%04d",
 	      d.month,DATE_SEPERATOR,d.dd,DATE_SEPERATOR,d.yyyy);
-#else
-      sprintf(date_format, "%02d%c%02d%c%04d",
-	      d.month,DATE_SEPERATOR,d.dd,DATE_SEPERATOR,d.yyyy);
-#endif
       break;
     case DATE_FMT_YYYY:  /* YYYY/MM/DD */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 11, "%04d%c%02d%c%02d",
 	      d.yyyy,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.dd);
-#else
-      sprintf(date_format, "%04d%c%02d%c%02d",
-	      d.yyyy,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.dd);
-#endif
       break;
     case DATE_FMT_YY: /* YY/MM/DD */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 9, "%02d%c%02d%c%02d",
 	      d.yy,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.dd);
-#else
-      sprintf(date_format, "%02d%c%02d%c%02d",
-	      d.yy,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.dd);
-#endif
       break;
     case DATE_FMT_EU_2:  /* DD/MM/YY */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 9, "%02d%c%02d%c%02d",
 	      d.dd,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.yy);
-#else
-      sprintf(date_format, "%02d%c%02d%c%02d",
-	      d.dd,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.yy);
-#endif
       break;
     case DATE_FMT_EU_4: /* DD/MM/YYYY */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 11, "%02d%c%02d%c%04d",
 	      d.dd,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.yyyy);
-#else
-      sprintf(date_format, "%02d%c%02d%c%04d",
-	      d.dd,DATE_SEPERATOR,d.month,DATE_SEPERATOR,d.yyyy);
-#endif
       break;
     case DATE_STR_YY  :  /* YYMMDD */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 7, "%02d%02d%02d", d.yy,d.month,d.dd);
-#else
-      sprintf(date_format, "%02d%02d%02d", d.yy,d.month,d.dd);
-#endif
       break;
     case DATE_STR_YYYY: /* YYYYMMDD */
-#ifdef SNPRINTF
       SNPRINTF(date_format, 9, "%04d%02d%02d", d.yyyy,d.month,d.dd);
-#else
-      sprintf(date_format, "%04d%02d%02d", d.yyyy,d.month,d.dd);
-#endif
       break;
     default:
       date_format[0] = JLIB2_CHAR_NULL;
@@ -141,25 +93,14 @@ int j2_ds_fmt(char *date_format, char *date_s, int out_type, int fmt)
 /*
  * j2_dl_fmt() -- converts a Long Date to a string then calls j2_dl_fmt()
  */
-#ifdef COHERENT
-int j2_dl_fmt(date_format, date_l, out_type)
-  char *date_format;
-  long date_l;
-  int out_type;
-#else
 int j2_dl_fmt(char *date_format, long date_l, int out_type)
-#endif
 {
   char ds[50];
 
   memset(ds, JLIB2_CHAR_NULL, 50);
-#ifdef SNPRINTF
   SNPRINTF(ds, 49, "%ld",date_l);
-#else
-  sprintf(ds, "%ld",date_l);
-#endif
 
   return( j2_ds_fmt(date_format, ds, out_type, DATE_IN_FMT_NOT) );
 
-} /* dl_fmt() */
+} /* j2_dl_fmt() */
 

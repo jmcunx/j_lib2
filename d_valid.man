@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\" Copyright (c) 1994 1995 1996 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,18 +13,16 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_date_is_valid 3 "$Date: 2018/07/02 23:06:05 $" "JMC" "Local Library Function"
-
+.TH j2_date_is_valid 3 "2018/07/02" "JMC" "Local Library Function"
 .SH NAME
 .nf
 j2_date_is_valid() - Is the Date Structure Valid
 j2_dl_valid()      - Is the Date Integer Valid
 .fi
-
 .SH SYNOPSIS
 #include <j_lib2.h>
 .nf
+
 int j2_date_is_valid(s_j2_datetime *d)
 int j2_dl_valid(long *d)
 .fi
@@ -76,7 +74,6 @@ Is 19990809 a valid date ?
 }
 
 .fi
-
 .SH RETURN VALUES
 TRUE of FALSE
 

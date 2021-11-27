@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2005 2006 2007 ... 2020 2021
+ * Copyright (c) 2005 2006 2007 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -14,10 +14,8 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -35,15 +33,7 @@
 /*
  * j2_expand_tab() -- expand tabs to spaces into a new string
  */
-#ifdef COHERENT
-int j2_expand_tab(tab_size, out_buf_size, out_buf, in_buf)
-  int tab_size;
-  size_t *out_buf_size;
-  char **out_buf;
-  char *in_buf;
-#else
 int j2_expand_tab(int tab_size, size_t *out_buf_size, char **out_buf, char *in_buf)
-#endif
 
 {
 
@@ -65,7 +55,7 @@ int j2_expand_tab(int tab_size, size_t *out_buf_size, char **out_buf, char *in_b
       return((int) TRUE);
     }
 
-  /*** Verify Tab Size, if invalid replace with space ***/
+  /*** Verify Tab Size, if invalid replace with 8 ***/
   if (tab_size < 1)
     tab_size = 8;
 
@@ -119,5 +109,5 @@ int j2_expand_tab(int tab_size, size_t *out_buf_size, char **out_buf, char *in_b
   /*** Done ***/
   return((int) TRUE);
 
-} /* END: j2_expand_tab() */
+}
 

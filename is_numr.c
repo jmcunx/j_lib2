@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -23,12 +23,7 @@
 /*
  * j2_is_numr() -- determines if all characters are numeric
  */
-#ifdef COHERENT
-int j2_is_numr(s)
-  char *s;
-#else
 int j2_is_numr(char *s)
-#endif
 
 {
   if (s == (char *) NULL)
@@ -42,5 +37,5 @@ int j2_is_numr(char *s)
   
   return(TRUE);
 
-} /* END: j2_is_numr() */
+}
 

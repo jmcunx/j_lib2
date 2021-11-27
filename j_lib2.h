@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -20,7 +20,7 @@
 */
 #ifndef J_LIB2_H
 
-#define J_LIB2_H "$Id: j_lib2.h,v 1.39 2020/11/17 22:23:48 jmccue Exp jmccue $"
+#define J_LIB2_H "INCLUDED"
 
 #define JLIB2_DIR_SEP '/'
 #define JLIB2_INT_NULL   ((int) '\0')
@@ -41,10 +41,6 @@
 
 #ifdef _MSDOS
 #define SNPRINTF _snprintf
-#define SSIZE_T unsigned long int
-#endif
-
-#ifdef COHERENT
 #define SSIZE_T unsigned long int
 #endif
 
@@ -158,44 +154,6 @@ struct s_j2_datetime
 } ;
 
 /*** prototypes ***/
-#ifdef COHERENT
-int  j2_bye_char();
-int  j2_expand_tab();
-int  j2_f_exist();
-int  j2_file_typ();
-int  j2_is_numr();
-long int j2_bye_emb();
-long int j2_bye_last();
-long int j2_chg_char();
-long int j2_clr_str();
-long int j2_justleft();
-long int j2_rtw();
-long int j2_fix_delm();
-char *j2_get_prgname();
-char *j2_today();
-void j2_strupr();
-void j2_strlwr();
-int j2_is_space_embedded();
-int j2_fix_numr();
-int j2_is_all_spaces();
-int j2_count_c();
-void j2_d_init();
-int j2_d_isleap();
-int j2_d_get_yyyy();
-int j2_dl_fmt();
-int j2_ds_fmt();
-int j2_date_is_valid();
-int j2_dl_valid();
-void j2_ds_date_time();
-int j2_dl_split();
-int j2_ds_split();
-long int j2_str_to_secs();
-void j2_secs_to_str();
-long int j2_d_to_sec();
-char *j2_get_build();
-unsigned int j2_getseed();
-unsigned int j2_randrange();
-#else
 int  j2_bye_char(char *, char );
 int  j2_expand_tab(int, size_t *, char **, char *);
 int  j2_f_exist(char *);
@@ -215,7 +173,7 @@ void j2_strlwr(char *);
 int j2_is_space_embedded(char *);
 int j2_fix_numr(char *, char, char);
 int j2_is_all_spaces(char *);
-int j2_count_c(char, char *);
+long int j2_count_c(char, char *);
 void j2_d_init(struct s_j2_datetime *);
 int j2_d_isleap(int);
 int j2_d_get_yyyy(int);
@@ -232,7 +190,6 @@ long int j2_d_to_sec(struct s_j2_datetime *);
 char *j2_get_build(void);
 unsigned int j2_getseed(void);
 unsigned int j2_randrange(unsigned int, unsigned int);
-#endif /* COHERENT */
 
 #define j2_bye_nl(x)    j2_bye_last((x), '\n')
 #define j2_bye_ctlm(x)  j2_bye_last((x), '\r')

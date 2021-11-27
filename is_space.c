@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -23,12 +23,7 @@
 /*
  * j2_is_all_spaces() -- determine if a string is all white space
  */
-#ifdef COHERENT
-int j2_is_all_spaces(s)
-  char *s;
-#else
 int j2_is_all_spaces(char *s)
-#endif
 
 {
   if (s == (char *) NULL)
@@ -41,4 +36,4 @@ int j2_is_all_spaces(char *s)
     }
   return(TRUE);
   
-} /* j2_is_all_spaces() */
+}

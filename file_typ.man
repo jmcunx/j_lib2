@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 1994 1995 1996 ... 2017 2018 
+.\" Copyright (c) 1994 1995 1996 ... 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_file_typ 3 "$Date: 2018/07/02 23:06:16 $" "JMC" "Local Library Function"
-
+.TH j2_file_typ 3 "2018/07/02" "JMC" "Local Library Function"
 .SH NAME
 j2_file_typ() - Get file type
-
 .SH SYNOPSIS
 .nf
 #include <sys/types.h>
@@ -26,10 +23,8 @@ j2_file_typ() - Get file type
 
 int j2_file_typ(char *f);
 .fi
-
 .SH DESCRIPTION
 j2_file_typ() Determines file type
-
 .SH RETURNS
 The following values are returned:
 .nf
@@ -46,10 +41,9 @@ The following values are returned:
     J2_SYMB_LINK       is a Symbolic link
     J2_UNKNOWN         succeeded, but file type unknown
 .fi
-
 .SH DIAGNOSTICS
-In some cases, even on UN*X systems, the following values
-may never be returned, even if the file is of that type:
+In some cases, on some UN*X systems, the following values
+may never be returned.
 .nf
     J2_BLOCK_SPECIAL
     J2_CHAR_SPECIAL

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1999 2001 2002 ... 2020 2021
+ * Copyright (c) 1999 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -35,14 +33,7 @@
  *    note if DDD turns out to be greater than 999 it will be replaced 
  *    by '***'
  */
-#ifdef COHERENT
-void j2_secs_to_str(buffer, secs, smax)
-  char *buffer;
-  long int secs;
-  size_t smax;
-#else
 void j2_secs_to_str(char *buffer, long int secs, size_t smax)
-#endif
 
 {
   time_t ddd, hh, mm, ss;
@@ -55,31 +46,16 @@ void j2_secs_to_str(char *buffer, long int secs, size_t smax)
   ss  = (ss  % ( (time_t) 60) );
 
   if (ddd > ( (time_t) 999) )
-#ifdef SNPRINTF
     SNPRINTF(buffer, smax, "*** %02lu%c%02lu%c%02lu",
             (unsigned long) hh,TIME_SEPERATOR,
             (unsigned long) mm,TIME_SEPERATOR,
             (unsigned long) ss);
-#else
-    sprintf(buffer, "*** %02lu%c%02lu%c%02lu",
-            (unsigned long) hh,TIME_SEPERATOR,
-            (unsigned long) mm,TIME_SEPERATOR,
-            (unsigned long) ss);
-#endif
   else
-#ifdef SNPRINTF
     SNPRINTF(buffer, smax, "%03lu %02lu%c%02lu%c%02lu",
             (unsigned long) ddd,
             (unsigned long) hh,TIME_SEPERATOR,
             (unsigned long) mm,TIME_SEPERATOR,
             (unsigned long) ss);
-#else
-    sprintf(buffer, "%03lu %02lu%c%02lu%c%02lu",
-            (unsigned long) ddd,
-            (unsigned long) hh,TIME_SEPERATOR,
-            (unsigned long) mm,TIME_SEPERATOR,
-            (unsigned long) ss);
-#endif
 
 }
 

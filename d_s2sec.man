@@ -13,27 +13,22 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_str_to_secs 3 "$Date: 2018/08/22 22:50:18 $" "JMC" "Local Library Function"
-
+.TH j2_str_to_secs 3 "2018/08/22" "JMC" "Local Library Function"
 .SH NAME
-
 j2_str_to_secs() - Converts a "run time" string to Seconds
-
 .SH SYNOPSIS
 .nf
 #include <time.h>
 #include <sys/types.h>
 #include <j_lib2.h>
 .fi
-time_t j2_str_to_secs(char *run_time);
 
+long int j2_str_to_secs(char *run_time);
 .SH DESCRIPTION
 j2_str_to_secs() - Converts a time string formatted as "DDD hh:mm:ss"
 to seconds.  strtok() is not
 used because this string could be used (created) via strtok().
 So we MUST assume there is *one* space separating Days from Time
-
 .SH EXAMPLE
 Convert to secs and back to string
 .nf
@@ -45,22 +40,21 @@ Convert to secs and back to string
   strcpy(ds,"002 03:05:00");
 
   secs = j2_str_to_secs(ds);
-  fprintf(stdout,"%s is %ld\n", ds, secs);
+  fprintf(stdout,"%s is %ld\\n", ds, secs);
 
   j2_secs_to_str(ds, secs);
-  fprintf(stdout,"%ld is %s\n", secs, ds);
+  fprintf(stdout,"%ld is %s\\n", secs, ds);
 
 }
 .fi
-
 .SH DIAGNOSTICS
 Run Time format is fixed at "DDD hh:mm:ss".
 There can only be one space between DDD and hh.
 Also DDD can be larger than 999,
 but the effective limit is "24855 03:14:07" on most 32 bit systems.
 .PP
-Note, the "effective limit" on 32 bit NetBSD Systems with
-the release >= 6.0 is the same as 64 bit systems.
-
-.SH RETURN VALUES
+Note, the "effective limit" on recent 32 bit NetBSD and OpenBSD Systems
+is the same as 64 bit systems.
+.SH
+RETURN VALUES
 Number of seconds.

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1999 2001 2002 ... 2020 2021
+ * Copyright (c) 1999 2001 2002 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -36,12 +34,7 @@
  *    string could be used (created) via strtok().  MUST assume there is 
  *    *one* space seperating Days from Time
  */
-#ifdef COHERENT
-long int j2_str_to_secs(buffer)
-  char *buffer;
-#else
 long int j2_str_to_secs(char *buffer)
-#endif
 {
   char *day_part = (char *) NULL;
   char *time_part = (char *) NULL;
@@ -76,4 +69,3 @@ long int j2_str_to_secs(char *buffer)
   return((long int) secs);
 
 }
-

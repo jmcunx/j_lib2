@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2019 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -22,7 +22,7 @@
 
 #ifndef J_LIB2M_H
 
-#define J_LIB2M_H "$Id: j_lib2m.h,v 2.39 2021/07/06 13:28:19 jmccue Exp $"
+#define J_LIB2M_H "INCLUDED"
 
 typedef unsigned long jm_counter;  /* allow 16 bit systems */
 

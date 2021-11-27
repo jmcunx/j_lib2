@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 2021
+ * Copyright (c) 2020 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -16,10 +16,8 @@
  *
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif 
 #endif 
 
 #include <stdio.h>

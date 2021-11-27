@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2020 2021
+ * Copyright (c) 1994 1995 1996 ... 2021 2022
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -15,10 +15,8 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
-#ifndef COHERENT
 #ifndef _MSDOS
 #include <sys/param.h>
-#endif
 #endif
 
 #include <stdio.h>
@@ -31,12 +29,7 @@
 /*
  * j2_date_is_valid() -- determines if a date is valid
  */
-#ifdef COHERENT
-int j2_date_is_valid(d)
-  struct s_j2_datetime *d;
-#else
 int j2_date_is_valid(struct s_j2_datetime *d)
-#endif
 {
   char cyyyy[SIZ_YYYY];
   int test_yy;
@@ -56,11 +49,7 @@ int j2_date_is_valid(struct s_j2_datetime *d)
   if (d->dd < 1)
     return((int) FALSE);
 
-#ifdef SNPRINTF
   SNPRINTF(cyyyy, SIZ_YYYY, "%d",d->yyyy);
-#else
-  sprintf(cyyyy, "%d",d->yyyy);
-#endif
 
   if(d->yyyy > 999)
     {
@@ -118,12 +107,7 @@ int j2_date_is_valid(struct s_j2_datetime *d)
 /*
  * j2_dl_valid() -- determines if a long date is valid
  */
-#ifdef COHERENT
-int j2_dl_valid(d)
-  long d;
-#else
 int j2_dl_valid(long d)
-#endif
 {
 
   struct s_j2_datetime ds;

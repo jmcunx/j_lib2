@@ -1,5 +1,5 @@
 .\" 
-.\" Copyright (c) 2020 2021
+.\" Copyright (c) 2021 2022
 .\"     John McCue <jmccue@jmcunx.com>
 .\" 
 .\" Permission to use, copy, modify, and distribute this software for any
@@ -13,12 +13,9 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-
-.TH j2_getseed 3 "$Date: 2020/11/18 00:26:04 $" "JMC" "Local Library Function"
-
+.TH j2_getseed 3 "2020/11/18" "JMC" "Local Library Function"
 .SH NAME
 j2_getseed() - Get a seed value for rand()
-
 .SH SYNOPSIS
 .nf
 #include <j_lib2.h>
@@ -32,15 +29,12 @@ j2_getseed() Get seed value
 Will get a seed value by reading /dev/urandom.
 If /dev/urandom read fails, the seed value will
 be retrieved from time().
-
 .SH DIAGNOSTICS
 On BSD Systems, this function is not needed since
 you should use arc4random(3) instead of rand(3).
 It is only here for systems that do not supply arc4random(3).
-
 .SH RETURNS
 Seed value as an unsigned int.
-
 .SH SEE-ALSO
 arc4random(3),
 j2_randrange(3),
