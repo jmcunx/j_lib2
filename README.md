@@ -4,9 +4,9 @@ Objects in this library goes back decades, some started out on MS-DOS
 and a little known Unix called IN/ix (a 16 but Unix on a proprietary
 8086 clone).
 
-To build, execute gen_make.sh to generate a Makefile
-for most BSD/Linux systems.  makefile.dos can be used
-for MS-DOS Systems under Microsoft c.
+To build, execute gen_make.sh to generate a Makefile for most
+BSD/Linux systems and IBM AIX.  makefile.dos can be used for MS-DOS
+Systems under Microsoft c.
 
 [GNU automake](https://en.wikipedia.org/wiki/Automake)
 only confuses me, so I came up with my own method which
