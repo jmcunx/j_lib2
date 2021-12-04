@@ -1,5 +1,3 @@
-github has no option to select the ISC license.<br>
-
 This is licensed using the [ISC Licence](https://en.wikipedia.org/wiki/ISC_license).
 
 ISC License
