@@ -1,5 +1,9 @@
 ## jmc Library
 
+github has no option to select the ISC license.
+This is licensed using the
+[ISC Licence](https://en.wikipedia.org/wiki/ISC_license).
+
 Objects in this library goes back decades, some started out on MS-DOS
 and a little known Unix called IN/ix (a 16 but Unix on a proprietary
 8086 clone).
@@ -11,9 +15,6 @@ Systems under Microsoft c.
 [GNU automake](https://en.wikipedia.org/wiki/Automake)
 only confuses me, so I came up with my own method which
 is a real hack.  But works for me.
-
-This is licensed under the
-[ISC Licence](https://en.wikipedia.org/wiki/ISC_license)
 
 Objects included and a brief description:
 
