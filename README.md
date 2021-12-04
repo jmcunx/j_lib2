@@ -1,6 +1,6 @@
 ## jmc Library
 
-github has no option to select the ISC license.
+github has no option to select the ISC license.<br>
 **This is licensed using the [ISC Licence](https://en.wikipedia.org/wiki/ISC_license).**
 
 Objects in this library goes back decades, some started out on MS-DOS
