@@ -1,8 +1,7 @@
 ## jmc Library
 
 github has no option to select the ISC license.
-This is licensed using the
-[ISC Licence](https://en.wikipedia.org/wiki/ISC_license).
+**This is licensed using the [ISC Licence](https://en.wikipedia.org/wiki/ISC_license).**
 
 Objects in this library goes back decades, some started out on MS-DOS
 and a little known Unix called IN/ix (a 16 but Unix on a proprietary
