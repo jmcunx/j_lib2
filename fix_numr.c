@@ -45,7 +45,7 @@ int j2_fix_numr(char *buffer, char thousand, char decimal_point)
       case 0:
         return(FALSE);
       case 1:
-	u = (unsigned int) (*b);
+	u = (unsigned int) (*buffer);
 	if ( (u > (unsigned int) 57) || ((unsigned int) u < 48) )
 	  {
 	    rc = FALSE;
