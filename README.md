@@ -48,3 +48,11 @@ Objects included and a brief description:
 * j2\_strupr(3) -- change a string to upper case
 * j2\_today(3) -- get current system date/time
 
+* man\_tr.txt -- Used to install Manuals on various Operating Systems
+* makefile.dos -- Microsoft c Makefile for nmake
+* clibopt.txt -- Microsoft c Linker Response File, Compact Model
+* hlibopt.txt -- Microsoft c Linker Response File, Hugh Model
+* llibopt.txt -- Microsoft c Linker Response File, Large Model
+* mlibopt.txt -- Microsoft c Linker Response File, Medium Model
+* slibopt.txt -- Microsoft c Linker Response File, Small Model
+* tlibopt.txt -- Microsoft c Linker Response File, Tiny Model
