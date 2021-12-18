@@ -38,10 +38,10 @@ Objects included and a brief description:
 * j2\_getseed(3) -- Get a seed value for rand()
 * j2\_is\_all\_spaces(3) -- is a string all white space ?
 * j2\_is\_numr(3) -- Is the string all numeric ?
-* j2\_is\_space\_embedded(3) -- Does a string any embedded white space ?
-* j2\_justleft(3) -- left justifies a string
+* j2\_is\_space\_embedded(3) -- Does a string contain any embedded white space ?
+* j2\_justleft(3) -- Left Justifies a string
 * j2\_randrange(3) -- Get a random number between an Integer Range
-* j2\_rtw(3) -- remove trailing white space
+* j2\_rtw(3) -- Remove Trailing White Space
 * j2\_secs\_to\_str(3) -- Converts seconds to a "run time" string
 * j2\_strlwr(3) -- change a string to all lower case
 * j2\_str\_to\_secs(3) -- Converts a "run time" string to Seconds
