@@ -65,34 +65,38 @@
 #define LIMIT_TO_SEC_YY 9999
 #define LIMIT_TO_SEC_MM 12
 #define LIMIT_TO_SEC_DD 31
+#define SIZE_GETLINE_BUF 256
 #endif
 #ifdef _AIX
 #define LIMIT_TO_SEC_YY 9999
 #define LIMIT_TO_SEC_MM 12
 #define LIMIT_TO_SEC_DD 31
+#define HAS_GETLINE 1
 #endif
 #ifdef __NetBSD_Version__
 #define LIMIT_TO_SEC_YY 9999
 #define LIMIT_TO_SEC_MM 12
 #define LIMIT_TO_SEC_DD 31
+#define HAS_GETLINE 1
 #endif
 #ifdef OpenBSD
 #define LIMIT_TO_SEC_YY 9999
 #define LIMIT_TO_SEC_MM 12
 #define LIMIT_TO_SEC_DD 31
+#define HAS_GETLINE 1
 #endif
-
-#ifndef LIMIT_TO_SEC_YY
-#if defined(__LP64__)
+#ifdef linux  /* linux now 64 bit time_t */
 #define LIMIT_TO_SEC_YY 9999
 #define LIMIT_TO_SEC_MM 12
 #define LIMIT_TO_SEC_DD 31
-#else
+#define HAS_GETLINE 1
+#endif
+
+#ifndef LIMIT_TO_SEC_YY
 #define LIMIT_TO_SEC_YY 2038
 #define LIMIT_TO_SEC_MM 1
 #define LIMIT_TO_SEC_DD 18
-#endif /* __LP64__ */
-#endif /* LIMIT_TO_SEC_YY  */
+#endif
 
 /*** values returned by file_type() ***/
 #define J2_CANT_GET      0
@@ -190,6 +194,7 @@ long int j2_d_to_sec(struct s_j2_datetime *);
 char *j2_get_build(void);
 unsigned int j2_getseed(void);
 unsigned int j2_randrange(unsigned int, unsigned int);
+SSIZE_T j2_getline(char **buf, size_t *n, FILE *);
 
 #define j2_bye_nl(x)    j2_bye_last((x), '\n')
 #define j2_bye_ctlm(x)  j2_bye_last((x), '\r')

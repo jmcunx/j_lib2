@@ -14,29 +14,42 @@
  * ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
+#ifndef _WIN32
+#ifndef _MSDOS
+#include <sys/param.h>
+#endif
+#endif
 
 #include <stdio.h>
-#include <ctype.h>
+#include <string.h>
 #include <stdlib.h>
 
 #include "j_lib2.h"
 
 /*
- * j2_is_numr() -- determines if all characters are numeric
+ * j2_getline() -- rewrote "jmc_get_rec()" from j_lib1.
+ *                 Now it is a front end to getline(3) or a hack for
+ *                 systems without getline(3)
  */
-int j2_is_numr(char *s)
-
+SSIZE_T j2_getline(char **buf, size_t *n, FILE *fp)
 {
-  if (s == (char *) NULL)
-    return((int) FALSE); /* NULL pointer */
+#ifdef HAS_GETLINE
+  return(getline(buf, n, fp));
+#else
   
-  for ( ; (*s) != JLIB2_CHAR_NULL; s++)
+  if ((*buf) == (char *) NULL)
     {
-      if ( ! isdigit((int)(*s)) )
-	return(FALSE);
+      (*n) = SIZE_GETLINE_BUF + 1;
+      (*buf) = (char *) malloc(((*n) * sizeof(char)));
+      if ((*buf) == (char *) NULL)
+	return(-1);
+      j2_clr_str((*buf), (*n), JLIB2_CHAR_NULL);
     }
+    
+  if (fgets((*buf), (*n), fp) == (char *) NULL)
+    return(-1);
+  return((SSIZE_T) strlen((*buf)));
   
-  return(TRUE);
-
-}
-
+#endif
+  
+} /* j2_getline() */

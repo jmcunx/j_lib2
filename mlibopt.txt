@@ -6,7 +6,6 @@ Y
 +chg_char.obj &
 +clr_str.obj &
 +count_c.obj &
-+ds_fmt.obj &
 +d_gyyyy.obj &
 +d_init.obj &
 +d_isleap.obj &
@@ -15,14 +14,16 @@ Y
 +d_split.obj &
 +d_to_sec.obj &
 +d_valid.obj &
++ds_fmt.obj &
 +embspace.obj &
 +expand.obj &
++f_exist.obj &
 +file_typ.obj &
 +fix_delm.obj &
 +fix_numr.obj &
-+f_exist.obj &
-+get_pgnm.obj &
 +g_build.obj &
++get_pgnm.obj &
++getline.obj &
 +is_numr.obj &
 +is_space.obj &
 +justleft.obj &

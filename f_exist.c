@@ -19,9 +19,15 @@
 #include <io.h>
 #include <errno.h>
 #else
+#ifdef _WIN32
+#include <io.h>
+#include <errno.h>
+#else
 #include <sys/stat.h>
 #endif
+#endif
 
+#include <stdio.h>
 #include <string.h>
 #include <sys/types.h>
 #include "j_lib2.h"

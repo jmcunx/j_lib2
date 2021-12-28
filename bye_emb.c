@@ -15,10 +15,13 @@
  * OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
  */
 
+#ifndef _WIN32
 #ifndef _MSDOS
 #include <sys/param.h>
 #endif
+#endif
 
+#include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>

@@ -52,3 +52,4 @@ d_s2sec|j2_str_to_secs
 d_to_sec|j2_d_to_sec
 getseed|j2_getseed
 randrange|j2_randrange
+getline.man|j2_getline
