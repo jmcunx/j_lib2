@@ -1,11 +1,11 @@
-.\" 
-.\" Copyright (c) 1994 1995 1996 ... 2021 2022
+.\"
+.\" Copyright (c) 1994 1995 1996 ... 2022 2023
 .\"     John McCue <jmccue@jmcunx.com>
-.\" 
+.\"
 .\" Permission to use, copy, modify, and distribute this software for any
 .\" purpose with or without fee is hereby granted, provided that the above
 .\" copyright notice and this permission notice appear in all copies.
-.\" 
+.\"
 .\" THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL WARRANTIES
 .\" WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF
 .\" MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR
@@ -13,7 +13,7 @@
 .\" WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN
 .\" ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF
 .\" OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
-.TH j_lib2 3 "2020/11/17" "JMC" "Local Library Function"
+.TH J_LIB2 3 "2020-11-17" "JMC" "Local Library Function"
 .SH NAME
 j_lib2 - Collection of miscellaneous and common functions
 .SH SYNOPSIS
@@ -41,7 +41,7 @@ The following functions exist in this library:
    j2_dl_valid(3)          Validate Date/Time
    j2_ds_fmt(3)            Format a Date/Time Value for Display
    j2_ds_split(3)          Split a Date/Time string
-   j2_d_to_sec(3)          Converts a date to the # of seconds 
+   j2_d_to_sec(3)          Converts a date to the # of seconds
    j2_expand_tab(3)        Expand tabs to spaces
    j2_f_exist(3)           see if a file exists
    j2_file_typ(3)          determine file type
