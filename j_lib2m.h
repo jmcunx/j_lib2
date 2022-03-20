@@ -156,6 +156,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_UNKNOWN_FILE  'K'  /* unknown Data File                  */
 #define ARG_KEEP          'k'  /* keep value                         */
 #define ARG_MIN_SIZE      'L'  /* Low value for File Split           */
+#define ARG_MIN_VALUE     'L'  /* Low Value                          */
 #define ARG_DATE_LOW      'L'  /* Low Date                           */
 #define ARG_FNAME_INVERT  'L'  /* Show only file names when NO match */
 #define ARG_LETTERS       'L'  /* show only ASCII letters            */
@@ -172,6 +173,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_ONLY_7BIT     'l'  /* show only ASCII 7bit characters    */
 #define ARG_DATE_MAX      'M'  /* Maximum (High) Date                */
 #define ARG_MAX_SIZE      'M'  /* Maximum Size                       */
+#define ARG_MAX_VALUE     'M'  /* Maximum Value                      */
 #define ARG_NOSHOW_MATNR  'M'  /* Bypass these Materials             */
 #define ARG_LEFT_MARGIN   'm'  /* Left Margin                        */
 #define ARG_LOAD_MEM      'm'  /* Load data to memory                */
@@ -181,6 +183,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_MAX_LINES     'm'  /* stop search after num matches      */
 #define ARG_MOD_DATE      'm'  /* Modification Date/Time             */
 #define ARG_SHOW_MATNR    'm'  /* process ONLY these Materials       */
+#define ARG_MOST          'm'  /* process at most                    */
 #define ARG_SHORT_LINES   'N'  /* print line # of the shortest line  */
 #define ARG_SHOW_NONASCII 'N'  /* Only show lines with non-ASCII char*/
 #define ARG_NUMB_FIX      'N'  /* corrects Number Format             */
@@ -218,6 +221,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_SHOW_STAT     's'  /* do print only these IDOC Statuses  */
 #define ARG_STATE         's'  /* US State 2 character abbreviation  */
 #define ARG_STATS         's'  /* Show run stats at end              */
+#define ARG_SLEEP         's'  /* sleep seconds                      */
 #define ARG_STRIP_CHARS   's'  /* Remove these characters from string*/
 #define ARG_DAYLIGHT      'S'  /* Force Daylight Savings             */
 #define ARG_NOSHOW_STAT   'S'  /* do NOT print these IDOC Statuses   */
@@ -345,6 +349,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_ERR_E085    "ERROR E085: Value for %c%c greater than 0\n"
 #define MSG_ERR_E086    "ERROR E086: Rec %ld - Start Date greater than End Date, see\n"
 #define MSG_ERR_E087    "ERROR E087: Rec %ld - Invalid Date/Time found '%s'\n"
+#define MSG_ERR_E088LL  "ERROR E088: Minimum Value %lld must be less than Maximum Value %lld\n"
 
 #define MSG_ERR_FNAME "           File %d: %s\n"
 #define MSG_ERR_FNAMN "           File: %s\n"
@@ -475,6 +480,14 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I095 "I095:             column  as Text    %d\n"
 #define MSG_INFO_I096 "I096:     Read Bytes:  %9ld - File %s\n"
 #define MSG_INFO_I097 "I097:    Write Bytes:  %9ld - File %s\n"
+#define MSG_INFO_I098 "I098: Random Numbers Written  : %-llu\n"
+#define MSG_INFO_I099 "I099: Sleeping                : %-u second(s)\n"
+#define MSG_INFO_I100 "I100: Pause after printing    : %-u Random Numbers\n"
+#define MSG_INFO_I101 "I101: Minimum Value to Print  : %-llu\n"
+#define MSG_INFO_I102 "I102: Maximum Value to Print  : %-llu\n"
+#define MSG_INFO_I103 "I103: Number of Items to Print: %-u\n"
+#define MSG_INFO_I104 "I104: Pause Seconds           : %-u\n"
+#define MSG_INFO_I105 "I105: Verbose Level           : %-d\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
@@ -885,6 +898,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_LEFT_MARGIN          "\t%c%c n\t\t: write a left margin of n spaces, default 0\n"
 #define USG_MSG_ARG_MAX_SIZE             "\t%c%c n\t\t: Maximum Line Size, default no maximum\n"
 #define USG_MSG_ARG_MAX_SIZE_1           "\t%c%c n\t\t: Maximum Field Size, default no maximum\n"
+#define USG_MSG_ARG_MAX_VALUE            "\t%c%c n\t\t: Maximum Value\n"
 #define USG_MSG_ARG_RESET                "\t%c%c\t\t: Do NOT reset page number between files\n"
 #define USG_MSG_ARG_STRIP_CHARS          "\t%c%c string\t: Strip ctaracters in 'string' from field\n"
 #define USG_MSG_ARG_CITY                 "\t%c%c string\t: City/Town to process\n"
@@ -933,6 +947,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_SHOW_MATNR_1         "\t%c%c file|matnr\t: Print only these Material(s)\n"
 #define USG_MSG_ARG_PRINT_UTF8           "\t%c%c\t\t: Print 'real' UTF-8 character instead of '*'\n"
 #define USG_MSG_ARG_ITERATIONS           "\t%c%c n\t\t: Iterations for overwrites\n"
+#define USG_MSG_ARG_ITERATIONS_1         "\t%c%c n\t\t: Pause after processing 'n' Objects\n"
 #define USG_MSG_ARG_KEEP                 "\t%c%c\t\t: do NOT translate valid UTF-8 characters\n"
 #define USG_MSG_ARG_KEEP_1               "\t%c%c\t\t: do NOT replace non-ASCII characters\n"
 #define USG_MSG_ARG_PRT_FORMAT           "\t%c%c c\t\t: Optional Output Format, where 'c' is:\n"
@@ -974,5 +989,8 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 
 #define USG_MSG_ARG_DATE_LOW         "\t%c%c date\t\t: Low Date Value for Range Print.\n"
 #define USG_MSG_ARG_DATE_MAX         "\t%c%c date\t\t: Maximum (High) Date for Date Range Print.\n"
+#define USG_MSG_ARG_SLEEP            "\t%c%c s\t\t: Sleep 's' seconds between iterations.\n"
+#define USG_MSG_ARG_MIN_VALUE        "\t%c%c n\t\t: Minumum Value\n"
+#define USG_MSG_ARG_MOST             "\t%c%c n\t\t: Print no more than 'n' entries\n"
 
 #endif  /* J_LIB2M_H */
