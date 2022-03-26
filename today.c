@@ -38,6 +38,9 @@
 #include <sys/time.h>
 #define BSD_TODAY 1
 #endif
+#ifdef linux
+#include <sys/time.h>
+#endif
 
 #ifdef __NetBSD_Version__
 #include <sys/time.h>
@@ -64,18 +67,28 @@ char *j2_today(struct s_j2_datetime *dt)
   struct timeval tp;
   struct timezone tzp;
 #else
+#ifdef linux
+  struct timeval tp;
+  struct timezone tzp;
+#else
   struct timeb  time_buf;
+#endif
 #endif
 
 #ifdef BSD_TODAY
   gettimeofday(&tp, &tzp);
   str_tm = localtime(&(tp.tv_sec));
 #else
+#ifdef linux
+  gettimeofday(&tp, &tzp);
+  str_tm = localtime(&(tp.tv_sec));
+#else
   ftime(&time_buf);
   str_tm = localtime(&(time_buf.time));
 #endif
+#endif
 
-  j2_clr_str(fmt, JLIB2_CHAR_NULL, 15);
+  j2_clr_str(fmt, JLIB2_CHAR_NULL, SFMT);
   
   (str_tm->tm_mon)++;
   
@@ -91,7 +104,11 @@ char *j2_today(struct s_j2_datetime *dt)
 #ifdef BSD_TODAY
   dt->mil      = (int) 0;
 #else
+#ifdef linux
+  dt->mil      = (int) 0;
+#else
   dt->mil      = time_buf.millitm;
+#endif
 #endif
 
   if ((dt->yyyy    < 10000) &&
