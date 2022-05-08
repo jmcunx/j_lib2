@@ -436,6 +436,8 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I048 "I048: Index: %ld\n"
 #define MSG_INFO_I049 "I049: Reads %-9ld : Writes %-9ld : <--- Total\n"
 
+#define MSG_INFO_I051 "I051: For Record Number: %ld\n"
+#define MSG_INFO_I052 "I052: %10s %02d/%02d/%04d %02d:%02d:%02d %ld\n"
 #define MSG_INFO_I053 "I053: Column Data not found for rec %ld\n"
 #define MSG_INFO_I054 "I054: Column Data for record  %ld, total columns: %ld\n"
 #define MSG_INFO_I055 "I055:     Column   %3ld: %s\n"
@@ -836,7 +838,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_DECIMAL_P            "\t%c%c c\t\t: Decimal Point for Numbers, actual character OR\n"
 #define USG_MSG_ARG_DECIMAL_P1           "\t\t\t  Ex: 46 = '.' or 44 = ',' or just '.' or ','\n"
 #define USG_MSG_ARG_DECIMAL_PZ           "\t\t\t  If not specified, defaults to '.'\n"
-#define USG_MSG_ARG_VERTICAL             "\t%c%c n\t\t: Vertical display\n"
+#define USG_MSG_ARG_VERTICAL             "\t%c%c\t\t: Vertical display\n"
 #define USG_MSG_ARG_FRONT                "\t%c%c n,n,n,...,n\t: Front Sprocket tooth count, comma seperated\n"
 #define USG_MSG_ARG_REAR                 "\t%c%c n,n,n,...,n\t: Rear  Sprocket tooth count, comma seperated\n"
 #define USG_MSG_ARG_WHEEL                "\t%c%c n\t\t: Wheel Size, if < 100 assume inches, > 100 assume cm\n"

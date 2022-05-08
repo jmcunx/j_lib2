@@ -76,6 +76,8 @@ int j2_expand_tab(int tab_size, size_t *out_buf_size, char **out_buf, char *in_b
 
   if (new_size > (*out_buf_size))
     {
+      if ((*out_buf) != (char *) NULL)
+	free((*out_buf));
       (*out_buf) = malloc((new_size * sizeof(char)) );
       if ((*out_buf) == (char *) NULL)
 	return((int) FALSE);
