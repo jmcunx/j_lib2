@@ -58,7 +58,7 @@ char *j2_today(struct s_j2_datetime *dt)
 
 {
 
-  static char fmt[SFMT];
+  char fmt[SFMT];
   struct tm     *str_tm;
 
   memset(fmt, JLIB2_CHAR_NULL, SFMT);

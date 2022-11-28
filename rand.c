@@ -78,12 +78,9 @@ unsigned int j2_randrange(unsigned int low, unsigned int max)
 #ifdef BSD_RAND
   c = (arc4random() % (max - low + 1)) + low; 
 #else
-  static unsigned int s = (unsigned int) 0;
-  if (s == (unsigned int) 0)
-    {
-      s = j2_getseed();
-      srand(s);
-    }
+  unsigned int s = (unsigned int) 0;
+  s = j2_getseed();
+  srand(s);
   c = (rand() % (max - low + 1)) + low; 
 #endif
 
