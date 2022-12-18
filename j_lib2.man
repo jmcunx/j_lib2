@@ -55,6 +55,7 @@ The following functions exist in this library:
    j2_justleft(3)          left justifies a string
    j2_randrange(3)         Get a random number between a Range
    j2_rtw(3)               remove trailing white space
+   j2_sleepm(3)            Sleep for milliseconds
    j2_secs_to_str(3)       Converts seconds to a "run time" string
    j2_strlwr(3)            change a string to lower case
    j2_str_to_secs(3)       Converts a "run time" string to Seconds

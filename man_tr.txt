@@ -1,5 +1,5 @@
 ## 
-## Copyright (c) 1994 1995 1996 ... 2021 2022
+## Copyright (c) 1994 1995 1996 ... 2022 2023
 ##     John McCue <jmccue@jmcunx.com>
 ## 
 ## Permission to use, copy, modify, and distribute this software for any
@@ -42,6 +42,7 @@ g_build|j2_get_build
 strlwr|j2_strlwr
 strupr|j2_strupr
 today|j2_today
+sleepm|j2_sleepm
 d_init|j2_d_init
 count_c|j2_count_c
 d_gyyyy|j2_d_get_yyyy

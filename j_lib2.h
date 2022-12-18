@@ -172,6 +172,7 @@ long int j2_rtw(char *);
 long int j2_fix_delm(char, char **, char *);
 char *j2_get_prgname(char *, char *);
 void j2_today(struct s_j2_datetime *);
+void j2_sleepm(long int);
 void j2_strupr(char *);
 void j2_strlwr(char *);
 int j2_is_space_embedded(char *);
