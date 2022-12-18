@@ -54,14 +54,11 @@
 /*
  * j2_today() -- get todays date
  */
-char *j2_today(struct s_j2_datetime *dt)
+void j2_today(struct s_j2_datetime *dt)
 
 {
 
-  char fmt[SFMT];
   struct tm     *str_tm;
-
-  memset(fmt, JLIB2_CHAR_NULL, SFMT);
   
 #ifdef BSD_TODAY
   struct timeval tp;
@@ -87,8 +84,6 @@ char *j2_today(struct s_j2_datetime *dt)
   str_tm = localtime(&(time_buf.time));
 #endif
 #endif
-
-  j2_clr_str(fmt, JLIB2_CHAR_NULL, SFMT);
   
   (str_tm->tm_mon)++;
   
@@ -102,27 +97,13 @@ char *j2_today(struct s_j2_datetime *dt)
   dt->tm_isdst = str_tm->tm_isdst;
 
 #ifdef BSD_TODAY
-  dt->mil      = (int) 0;
+  dt->mil      = (int) (tp.tv_usec / 1000);
 #else
 #ifdef linux
-  dt->mil      = (int) 0;
+  dt->mil      = (int) (tp.tv_usec / 1000);
 #else
   dt->mil      = time_buf.millitm;
 #endif
 #endif
-
-  if ((dt->yyyy    < 10000) &&
-      (dt->month   < 100)   &&
-      (dt->dd      < 100)   &&
-      (dt->hh      < 100)   &&
-      (dt->minutes < 100)   &&
-      (dt->ss      < 100))  /* prevent overflow */
-    {
-      SNPRINTF(fmt,SFMT,"%04d%02d%02d%02d%02d%02d",
-	      dt->yyyy, dt->month,   dt->dd, 
-	      dt->hh,   dt->minutes, dt->ss);
-    }
-  
-  return(fmt);
 
 }

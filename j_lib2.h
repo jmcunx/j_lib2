@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2021 2022
+ * Copyright (c) 1994 1995 1996 ... 2022 2023
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
@@ -171,7 +171,7 @@ long int j2_justleft(char *);
 long int j2_rtw(char *);
 long int j2_fix_delm(char, char **, char *);
 char *j2_get_prgname(char *, char *);
-char *j2_today(struct s_j2_datetime *);
+void j2_today(struct s_j2_datetime *);
 void j2_strupr(char *);
 void j2_strlwr(char *);
 int j2_is_space_embedded(char *);
