@@ -204,6 +204,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_PRINCIPAL     'p'  /* Principal Amount                   */
 #define ARG_PRINT_UTF8    'p'  /* print 'real' UTF-8 character       */
 #define ARG_PRT_FORMAT    'p'  /* Output Format                      */
+#define ARG_PAUSE         'p'  /* Pause for for microseconds         */
 #define ARG_QUIET         'q'  /* Quiet Mode                         */
 #define ARG_RANK          'R'  /* degree is type Rankine             */
 #define ARG_REAR          'R'  /* Rear  Sprockets                    */
@@ -952,6 +953,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_ITERATIONS_1         "\t%c%c n\t\t: Pause after processing 'n' Objects\n"
 #define USG_MSG_ARG_KEEP                 "\t%c%c\t\t: do NOT translate valid UTF-8 characters\n"
 #define USG_MSG_ARG_KEEP_1               "\t%c%c\t\t: do NOT replace non-ASCII characters\n"
+#define USG_MSG_ARG_PAUSE                "\t%c%c n\t\t: Pause for 'n' microseconds\n"
 #define USG_MSG_ARG_PRT_FORMAT           "\t%c%c c\t\t: Optional Output Format, where 'c' is:\n"
 #define USG_MSG_ARG_PRT_FORMAT_A_DEG     "\t\t\t    'a' = '32.00'\n"
 #define USG_MSG_ARG_PRT_FORMAT_B_DEG     "\t\t\t    'b' = '32'\n"
