@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 1994 1995 1996 ... 2021 2022
+ * Copyright (c) 1994 1995 1996 ... 2022 2023
  *     John McCue <jmccue@jmcunx.com>
  *
  * Permission to use, copy, modify, and distribute this software for any
