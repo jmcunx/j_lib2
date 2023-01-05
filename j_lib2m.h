@@ -907,6 +907,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_CITY                 "\t%c%c string\t: City/Town to process\n"
 #define USG_MSG_ARG_STATE                "\t%c%c XX\t\t: State abbreviation, 2 characters uppercase\n"
 #define USG_MSG_ARG_IN_DIR               "\t%c%c dir\t\t: Optional, where sunrise/set tables are located\n"
+#define USG_MSG_ARG_IN_DIR_8             "\t%c%c dir\t\t: Optional, location for v8 pawned hash files\n"
 #define USG_MSG_ARG_DATE                 "\t%c%c YYYYMMDD\t: Optional, use this date instead of System Date\n"
 #define USG_MSG_ARG_IGNORE               "\t%c%c\t\t: Ignore character case.\n"
 #define USG_MSG_ARG_IGNORE_1             "\t%c%c\t\t: Ignored, for compatibility with other Utilities\n"
