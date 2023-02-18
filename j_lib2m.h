@@ -134,6 +134,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_EXAMINE       'E'  /* Examine the file, do not convert   */
 #define ARG_EXPAND        'E'  /* Expand tabs to spaces              */
 #define ARG_END           'E'  /* End Line Number                    */
+#define ARG_EMBEDDED      'E'  /* remove embedded spaces             */
 #define ARG_ERR           'e'  /* Output Error File                  */
 #define ARG_FAHR          'F'  /* degree is type Fahrenheit          */
 #define ARG_FIELD         'F'  /* Field to process                   */
@@ -205,7 +206,6 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_PRINCIPAL     'p'  /* Principal Amount                   */
 #define ARG_PRINT_UTF8    'p'  /* print 'real' UTF-8 character       */
 #define ARG_PRT_FORMAT    'p'  /* Output Format                      */
-#define ARG_PAUSE         'p'  /* Pause for for microseconds         */
 #define ARG_NOT_PWNED     'p'  /* Not Pawned Password Output File    */
 #define ARG_QUIET         'q'  /* Quiet Mode                         */
 #define ARG_RANK          'R'  /* degree is type Rankine             */
@@ -213,11 +213,13 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_RTW           'R'  /* remove trailing spaces             */
 #define ARG_RUNMODE       'R'  /* How to execute                     */
 #define ARG_URAND         'R'  /* use rand() to generate random data */
+#define ARG_READS         'r'  /* after this many reads, do something*/
 #define ARG_RANDOM        'r'  /* use /dev/urandom as input          */
-#define ARG_RANDOM_SPLIT  'r'  /* Randon size on split               */
+#define ARG_RANDOM_SPLIT  'r'  /* Random size on split               */
 #define ARG_REVERSE       'r'  /* reverse output                     */
 #define ARG_REPORT        'r'  /* Report File                        */
 #define ARG_RESET         'r'  /* Reset                              */
+#define ARG_REMOVE_8BIT   'r'  /* remove non-7-bit ASCII              */
 #define ARG_FILE_SIZE     's'  /* File Size                          */
 #define ARG_MSG_NO_FILE   's'  /* Bypass display of file issues      */
 #define ARG_SHORT_LEN     's'  /* print length of the longest line   */
@@ -225,7 +227,9 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_STATE         's'  /* US State 2 character abbreviation  */
 #define ARG_STATS         's'  /* Show run stats at end              */
 #define ARG_SLEEP         's'  /* sleep seconds                      */
+#define ARG_PAUSE         's'  /* Pause for for microseconds         */
 #define ARG_STRIP_CHARS   's'  /* Remove these characters from string*/
+#define ARG_8BIT_SPACE    's'  /* change non-7-bit ASCII to SPACE    */
 #define ARG_DAYLIGHT      'S'  /* Force Daylight Savings             */
 #define ARG_NOSHOW_STAT   'S'  /* do NOT print these IDOC Statuses   */
 #define ARG_STATS_ONLY    'S'  /* Print only stats                   */
@@ -353,6 +357,8 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_ERR_E086    "ERROR E086: Rec %ld - Start Date greater than End Date, see\n"
 #define MSG_ERR_E087    "ERROR E087: Rec %ld - Invalid Date/Time found '%s'\n"
 #define MSG_ERR_E088LL  "ERROR E088: Minimum Value %lld must be less than Maximum Value %lld\n"
+#define MSG_ERR_E089    "ERROR E089: Cannot specify both %c%c and %c%c at the smaetime.\n"
+#define MSG_ERR_E090    "ERROR E090: Need to specify either %c%c or %c%c or both\n"
 
 #define MSG_ERR_FNAME "           File %d: %s\n"
 #define MSG_ERR_FNAMN "           File: %s\n"
@@ -493,6 +499,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I103 "I103: Number of Items to Print: %-u\n"
 #define MSG_INFO_I104 "I104: Pause Seconds           : %-u\n"
 #define MSG_INFO_I105 "I105: Verbose Level           : %-d\n"
+#define MSG_INFO_I106 "I106: Paused %ld microseconds after processing %ld Input Records\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
@@ -586,6 +593,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define LIT_CHAR          "Char"
 #define LIT_CHAR_TYPE     "Char Type"
 #define LIT_COMMAND       "Command"
+#define LIT_COMPLETE      "Complete"
 #define LIT_CONVERTED     "Converted"
 #define LIT_COUNTRY       "Country"
 #define LIT_CURRENCY      "Currency"
@@ -881,10 +889,12 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_SHOW_LEVEL_1         "\t%c%c level\t: Which conversion details to display\n"
 #define USG_MSG_ARG_7BIT_FILE            "\t%c%c file\t\t: Write '7-bit' ASCII Records to 'file'\n"
 #define USG_MSG_ARG_7BIT_FILE_1          "\t%c%c\t\t: Print '7-bit' ASCII characters\n"
+#define USG_MSG_ARG_7BIT_LINES           "\t%c%c\t\t: Print Lines with only ASCII Characters\n"
 #define USG_MSG_ARG_8BIT_FILE            "\t%c%c file\t\t: Write '8-bit' ASCII Records to 'file'\n"
 #define USG_MSG_ARG_8BIT_FILE_1          "\t%c%c\t\t: Print '8-bit' ASCII (invalid) characters\n"
 #define USG_MSG_ARG_UTF8_FILE            "\t%c%c file\t\t: Write 'UTF-8' Records to 'file'\n"
 #define USG_MSG_ARG_UTF8_FILE_1          "\t%c%c\t\t: Print 'UTF-8' characters\n"
+#define USG_MSG_ARG_UTF8_LINE            "\t%c%c\t\t: Print Lines with 1 or more non-ASCII Characters\n"
 #define USG_MSG_ARG_UNKNOWN_FILE         "\t%c%c file\t\t: Write 'Unknown' Character Records to 'file'\n"
 #define USG_MSG_ARG_UNIQ                 "\t%c%c\t\t: Show only unique lines, lines with one occurrence.\n"
 #define USG_MSG_ARG_DUPS                 "\t%c%c\t\t: Show lines that occur more than once.\n"
@@ -905,7 +915,10 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_MAX_SIZE_1           "\t%c%c n\t\t: Maximum Field Size, default no maximum\n"
 #define USG_MSG_ARG_MAX_VALUE            "\t%c%c n\t\t: Maximum Value\n"
 #define USG_MSG_ARG_RESET                "\t%c%c\t\t: Do NOT reset page number between files\n"
-#define USG_MSG_ARG_STRIP_CHARS          "\t%c%c string\t: Strip ctaracters in 'string' from field\n"
+#define USG_MSG_ARG_STRIP_CHARS          "\t%c%c string\t: Strip characters in 'string' from field\n"
+#define USG_MSG_ARG_REMOVE_8BIT          "\t%c%c\t\t: Remove all non-ASCII before printing\n"
+#define USG_MSG_ARG_EMBEDDED             "\t%c%c\t\t: Remove embedded white space\n"
+#define USG_MSG_ARG_8BIT_SPACE           "\t%c%c\t\t: Change all non-ASCII to space before printing\n"
 #define USG_MSG_ARG_CITY                 "\t%c%c string\t: City/Town to process\n"
 #define USG_MSG_ARG_STATE                "\t%c%c XX\t\t: State abbreviation, 2 characters uppercase\n"
 #define USG_MSG_ARG_IN_DIR               "\t%c%c dir\t\t: Optional, where sunrise/set tables are located\n"
@@ -956,7 +969,6 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_ITERATIONS_1         "\t%c%c n\t\t: Pause after processing 'n' Objects\n"
 #define USG_MSG_ARG_KEEP                 "\t%c%c\t\t: do NOT translate valid UTF-8 characters\n"
 #define USG_MSG_ARG_KEEP_1               "\t%c%c\t\t: do NOT replace non-ASCII characters\n"
-#define USG_MSG_ARG_PAUSE                "\t%c%c n\t\t: Pause for 'n' microseconds\n"
 #define USG_MSG_ARG_PWNED                "\t%c%c file\t\t: Output for Pawned Passwords, default stdout\n"
 #define USG_MSG_ARG_NOT_PWNED            "\t%c%c file\t\t: Output for Not Pawned Passwords, default stdout\n"
 #define USG_MSG_ARG_PRT_FORMAT           "\t%c%c c\t\t: Optional Output Format, where 'c' is:\n"
@@ -976,6 +988,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_DETAIL_RPT           "\t%c%c\t\t: Print Detail Report\n"
 #define USG_MSG_ARG_NO_RPT               "\t%c%c\t\t: Do NOT create a Report\n"
 #define USG_MSG_ARG_TEXT_COL             "\t%c%c n,n,n,n,...\t: Treat columns 'n' as text (0 = all Text)\n"
+#define USG_MSG_ARG_READS                "\t%c%c n\t\t: Optional, after 'n' reads, pause\n"
 
 #define USG_MSG_ARG_LIST_MODE        "\t%c%c 1|2\t\t: Base output on FILE1 (1) or FILE2 (2)\n"
 #define USG_MSG_ARG_FAHR             "\t%c%c\t\t: Convert from degrees Fahrenheit\n"
@@ -999,6 +1012,8 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_DATE_LOW         "\t%c%c date\t\t: Low Date Value for Range Print.\n"
 #define USG_MSG_ARG_DATE_MAX         "\t%c%c date\t\t: Maximum (High) Date for Date Range Print.\n"
 #define USG_MSG_ARG_SLEEP            "\t%c%c s\t\t: Sleep 's' seconds between iterations.\n"
+#define USG_MSG_ARG_PAUSE            "\t%c%c n\t\t: Sleep for 'n' microseconds after each output line\n"
+#define USG_MSG_ARG_PAUSE_1          "\t%c%c n\t\t: Sleep 'n' microseconds after processing %d records\n"
 #define USG_MSG_ARG_MIN_VALUE        "\t%c%c n\t\t: Minumum Value\n"
 #define USG_MSG_ARG_MOST             "\t%c%c n\t\t: Print no more than 'n' entries\n"
 
