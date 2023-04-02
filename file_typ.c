@@ -21,6 +21,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <sys/stat.h>
 
 #include "j_lib2.h"
 

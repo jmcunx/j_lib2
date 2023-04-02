@@ -122,5 +122,5 @@ long int j2_d_to_sec(struct s_j2_datetime *d)
 
   return((long int) secs_since);
 
-} /* cnv_secs() */
+} /* j2_d_to_sec() */
 
