@@ -941,7 +941,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_PATERN_FIL1          "\t%c%c kfile\t: Obtain search keys from 'kfile'\n"
 #define USG_MSG_ARG_PATERN_FILE          "\t%c%c file\t\t: Obtain search text from 'file'\n"
 #define USG_MSG_ARG_PAUSE                "\t%c%c n\t\t: Sleep for 'n' microseconds after each output line\n"
-#define USG_MSG_ARG_PAUSE_1              "\t%c%c n\t\t: Sleep 'n' microseconds after processing %d records\n"
+#define USG_MSG_ARG_PAUSE_1              "\t%c%c n\t\t: Sleep 'n' microseconds based upon records processed\n"
 #define USG_MSG_ARG_PREFIX               "\t%c%c\t\t: Prefix Text Line with status\n"
 #define USG_MSG_ARG_PRINCIPAL            "\t%c%c num\t\t: Principal Amount\n"
 #define USG_MSG_ARG_PRINT_FEED           "\t%c%c\t\t: Print a form feed between pages\n"
