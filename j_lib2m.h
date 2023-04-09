@@ -118,6 +118,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_COL           'C'  /* Column to start with               */
 #define ARG_IS_CSV        'C'  /* input is a CSV file                */
 #define ARG_SHOW_CONVERT  'C'  /* Write conversion details to file   */
+#define ARG_CHECKPOINT    'C'  /* Checkpoint file for resuming       */
 #define ARG_CHANGED       'c'  /* Show changed data                  */
 #define ARG_CHAR          'c'  /* Replace Character                  */
 #define ARG_CHG_DATE      'c'  /* Last Status Change Date/Time       */
@@ -238,6 +239,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_NOSHOW_STAT   'S'  /* do NOT print these IDOC Statuses   */
 #define ARG_STATS_ONLY    'S'  /* Print only stats                   */
 #define ARG_START         'S'  /* start print at line #              */
+#define ARG_SAVE_CHECKP   'S'  /* save CHECKPOINT after so many Recs */
 #define ARG_TAB_SPACE     'T'  /* Expand tabs to # characters        */
 #define ARG_TITLE         't'  /* Report Title                       */
 #define ARG_TEXT          't'  /* Process text mode                  */
@@ -365,10 +367,13 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_ERR_E088LL  "ERROR E088: Minimum Value %lld must be less than Maximum Value %lld\n"
 #define MSG_ERR_E089    "ERROR E089: Cannot specify both %c%c and %c%c at the smaetime.\n"
 #define MSG_ERR_E090    "ERROR E090: Need to specify either %c%c or %c%c or both\n"
-#define MSG_ERR_E091    "E091: cannot lock file '%s' : %s\n"
-#define MSG_ERR_E092    "E092: cannot position read to %ld (%s) on file\n    '%s'\n"
-#define MSG_ERR_E093    "E093: no data found after seek to %ld (%s) on file\n    '%s'\n"
-#define MSG_ERR_E094    "E094: must specify exactly 2 files\n"
+#define MSG_ERR_E091    "ERROR E091: cannot lock file '%s' : %s\n"
+#define MSG_ERR_E092    "ERROR E092: cannot position read to %ld (%s) on file\n    '%s'\n"
+#define MSG_ERR_E093    "ERROR E093: no data found after seek to %ld (%s) on file\n    '%s'\n"
+#define MSG_ERR_E094    "ERROR E094: must specify exactly 2 files\n"
+#define MSG_ERR_E095    "ERROR E095: You need to specify exactly one file when using %c%c, you specified %d files\n"
+#define MSG_ERR_E096    "ERROR E096: Checkpoint File Invalid, entry not numeric: %s\n"
+#define MSG_ERR_E097    "ERROR E097: Argument '%c%c' is Required when using Restart Options '%c%c'\n"
 
 #define MSG_ERR_FNAME "           File %d: %s\n"
 #define MSG_ERR_FNAMN "           File: %s\n"
@@ -404,6 +409,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_WARN_W029 "W029: Rec %ld - outlier, bypassing\n"
 #define MSG_WARN_W030 "W030: Bypassed Record %ld, invalid format\n"
 #define MSG_WARN_W031 "W031: Bypassed, cannot lock file '%s' : %s\n"
+#define MSG_WARN_W032 "W032: Restart Active, Summary Counts only for processing since the Restart:\n"
   
 #define MSG_INFO_I001 "I001: %s -- Processing '%s'\n"
 #define MSG_INFO_I002 "I002: %s -- Reads %ld : Writes %ld\n"
@@ -515,6 +521,10 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I108 "I108:  Lines Matched:  %9ld - File %s\n"
 #define MSG_INFO_I109 "I109:     No Matches:  %9ld - File %s\n"
 #define MSG_INFO_I110 "I110: found %ld Matched Records\n"
+#define MSG_INFO_I111 "I111: Checkpoint active, restart info written to file:\n"
+#define MSG_INFO_I112 "I112: Checkpoint will save restart after every %ld reads\n"
+#define MSG_INFO_I113 "I113: for Input File:\n"
+#define MSG_INFO_I114 "I114: Restarted Processing at Position %ld, based upon file:\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
@@ -556,6 +566,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define LIT_TRANS_START     "START Translate Table"
 #define LIT_TRANS_END       "END   Translate Table"
 #define LIT_SKIP_PRINT      "Print to output skipped"
+#define LIT_FILE_EMPTY      "File has no real data"
 
 #define LIT_ARROW_03      "-->"
 #define LIT_ARROW_04      "--->"
@@ -788,6 +799,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_BYTE_1               "\t%c%c\t\t: treat all data as 1 byte characters\n"
 #define USG_MSG_ARG_CENT                 "\t%c%c\t\t: Convert from degrees Centigrade\n"
 #define USG_MSG_ARG_CHANGED              "\t%c%c\t\t: output data where columns are different\n"
+#define USG_MSG_ARG_CHECKPOINT           "\t%c%c file\t\t: Checkpoint File for resuming where it left off\n"
 #define USG_MSG_ARG_CHAR                 "\t%c%c x\t\t: replace non-ASCII with character 'x'\n"
 #define USG_MSG_ARG_CHAR_1A              "\t%c%c x\t\t: replace non-ASCII with character 'x' instead\n"
 #define USG_MSG_ARG_CHAR_1B              "\t\t\t  of the default character '%c' on output\n"
@@ -980,6 +992,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_SHOW_STAT            "\t%c%c file\t\t: Print only these IDOC Statuses\n"
 #define USG_MSG_ARG_SKIP_COLS            "\t%c%c n,n,n,...\t: List of columns to skip\n"
 #define USG_MSG_ARG_SLEEP                "\t%c%c s\t\t: Sleep 's' seconds between iterations.\n"
+#define USG_MSG_ARG_SAVE_CHECKP          "\t%c%c n\t\t: Save Restart Info after processing 'n' recs\n"
 #define USG_MSG_ARG_START                "\t%c%c b\t\t: Start dump at byte 'b'\n"
 #define USG_MSG_ARG_START_1              "\t%c%c #\t\t: Start display at line '#', default is line %ld\n"
 #define USG_MSG_ARG_STATE                "\t%c%c XX\t\t: State abbreviation, 2 characters uppercase\n"
