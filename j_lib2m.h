@@ -453,7 +453,6 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I040 "I040: Characters Translated:  %9ld\n"
 #define MSG_INFO_I041 "I041:         Bytes Written:                      %9ld\n"
 #define MSG_INFO_I042 "I042:        Skipped Writes:                      %9ld\n"
-
 #define MSG_INFO_I043 "I043: Input  File: %s\n"
 #define MSG_INFO_I044 "I044: Output File: %s\n"
 #define MSG_INFO_I045 "I045: File  Reads: %-ld\n"
@@ -461,14 +460,12 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I047 "I047: Seed:  %u\n"
 #define MSG_INFO_I048 "I048: Index: %ld\n"
 #define MSG_INFO_I049 "I049: Reads %-9ld : Writes %-9ld : <--- Total\n"
-
 #define MSG_INFO_I051 "I051: For Record Number: %ld\n"
 #define MSG_INFO_I052 "I052: %10s %02d/%02d/%04d %02d:%02d:%02d %ld\n"
 #define MSG_INFO_I053 "I053: Column Data not found for rec %ld\n"
 #define MSG_INFO_I054 "I054: Column Data for record  %ld, total columns: %ld\n"
 #define MSG_INFO_I055 "I055:     Column   %3ld: %s\n"
 #define MSG_INFO_I056 "I056: Field Type         %s\n"
-
 #define MSG_INFO_I060 "Detail for IDOC: %s\n"
 #define MSG_INFO_I061 "           Type: %s\n"
 #define MSG_INFO_I062 "       Material: %s\n"
@@ -490,7 +487,6 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I078 "I078: Items Bypassed:  %9ld\n"
 #define MSG_INFO_I079 "I079: Items    Total:  %9ld\n"
 #define MSG_INFO_I080 "I080:   Lines Writes:  %9ld - File %s\n"
-
 #define MSG_INFO_I081 "I081: Number of Input Files          %d\n"
 #define MSG_INFO_I082 "I082: Remove non-ASCII characters  ? %s\n"
 #define MSG_INFO_I083 "I083: Input  Files in csv format   ? %s\n"
@@ -525,6 +521,15 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I112 "I112: Checkpoint will save restart after every %ld reads\n"
 #define MSG_INFO_I113 "I113: for Input File:\n"
 #define MSG_INFO_I114 "I114: Restarted Processing at Position %ld, based upon file:\n"
+#define MSG_INFO_I115 "I115:    Lines Reads:  %9ld\n"
+#define MSG_INFO_I116 "I116:   Lines Writes:  %9ld\n"
+#define MSG_INFO_I117 "I117:     Hash Found:  %9ld\n"
+#define MSG_INFO_I118 "I118:   Hash Missing:  %9ld\n"
+#define MSG_INFO_I119 "I119:    Hash Failed:  %9ld\n"
+#define MSG_INFO_I120 "I120:   Hash Invalid:  %9ld\n"
+#define MSG_INFO_I121 "I121:   Hash Bad I/O:  %9ld\n"
+#define MSG_INFO_I122 "I122:      *** PWNED:  %9ld\n"
+#define MSG_INFO_I123 "I123:      Not pwned:  %9ld\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
