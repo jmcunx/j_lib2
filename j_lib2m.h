@@ -191,6 +191,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_SHORT_LINES   'N'  /* print line # of the shortest line  */
 #define ARG_SHOW_NONASCII 'N'  /* Only show lines with non-ASCII char*/
 #define ARG_NUMB_FIX      'N'  /* corrects Number Format             */
+#define ARG_SHOW_NEW      'N'  /* Show only records not in files     */
 #define ARG_NL_ASCII      'n'  /* add new line to output             */
 #define ARG_ADDNL         'n'  /* add new line to output             */
 #define ARG_NOTIFY        'n'  /* Use notify-send                    */
@@ -993,6 +994,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_SHOW_MATNR           "\t%c%c file\t\t: Print only these Materials\n"
 #define USG_MSG_ARG_SHOW_MATNR_1         "\t%c%c file|matnr\t: Print only these Material(s)\n"
 #define USG_MSG_ARG_SHOW_NONASCII        "\t%c%c\t\t: Show only non-ASCII Lines\n"
+#define USG_MSG_ARG_SHOW_NEW             "\t%c%c\t\t: Only print records NOT in the other file\n"
 #define USG_MSG_ARG_SHOW_NUM             "\t%c%c\t\t: Display only count of lines matched\n"
 #define USG_MSG_ARG_SHOW_STAT            "\t%c%c file\t\t: Print only these IDOC Statuses\n"
 #define USG_MSG_ARG_SKIP_COLS            "\t%c%c n,n,n,...\t: List of columns to skip\n"
