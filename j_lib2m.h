@@ -374,7 +374,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_ERR_E094    "ERROR E094: must specify exactly 2 files\n"
 #define MSG_ERR_E095    "ERROR E095: You need to specify exactly one file when using %c%c, you specified %d files\n"
 #define MSG_ERR_E096    "ERROR E096: Checkpoint File Invalid, entry not numeric: %s\n"
-#define MSG_ERR_E097    "ERROR E097: Argument '%c%c' is Required when using Restart Options '%c%c'\n"
+#define MSG_ERR_E097    "ERROR E097: Argument '%c%c' is Required when using Option '%c%c'\n"
 
 #define MSG_ERR_FNAME "           File %d: %s\n"
 #define MSG_ERR_FNAMN "           File: %s\n"
@@ -531,6 +531,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I121 "I121:   Hash Bad I/O:  %9ld\n"
 #define MSG_INFO_I122 "I122:      *** PWNED:  %9ld\n"
 #define MSG_INFO_I123 "I123:      Not pwned:  %9ld\n"
+#define MSG_INFO_I124 "I124: Dir for Pwned Hash Files: %s\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
