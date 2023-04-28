@@ -204,14 +204,12 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_OUT           'o'  /* Output File                        */
 #define ARG_PARM          'P'  /* file to get parameters             */
 #define ARG_PRINT_FEED    'P'  /* Print a form feed                  */
-#define ARG_PWNED         'P'  /* Pawned Password Output File        */
 #define ARG_USE_PI        'p'  /* use PI in calculations             */
 #define ARG_PREFIX        'p'  /* Prefix text line with type         */
 #define ARG_PATERN_FILE   'p'  /* Pattern File Name                  */
 #define ARG_PRINCIPAL     'p'  /* Principal Amount                   */
 #define ARG_PRINT_UTF8    'p'  /* print 'real' UTF-8 character       */
 #define ARG_PRT_FORMAT    'p'  /* Output Format                      */
-#define ARG_NOT_PWNED     'p'  /* Not Pawned Password Output File    */
 #define ARG_QUIET         'q'  /* Quiet Mode                         */
 #define ARG_RANK          'R'  /* degree is type Rankine             */
 #define ARG_REAR          'R'  /* Rear  Sprockets                    */
@@ -256,6 +254,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_VERTICAL      'v'  /* Vertical Display                   */
 #define ARG_VERBOSE       'v'  /* Verbose                            */
 #define ARG_INVERT        'v'  /* Invert Match                       */
+#define ARG_PWNED         'W'  /* Pawned Password Output File        */
 #define ARG_ADD_SPACE     'w'  /* Add Spaces                         */
 #define ARG_WHITE_SPACE   'w'  /* Ignore white space                 */
 #define ARG_WHEEL         'w'  /* Wheel Size                         */
@@ -263,6 +262,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define ARG_NO_SHOW_FNAME 'w'  /* Never show file name on each line  */
 #define ARG_WORD_COUNT    'w'  /* Show work count                    */
 #define ARG_SHOW_FNAME    'W'  /* Show file name on each line        */
+#define ARG_NOT_PWNED     'w'  /* Not Pawned Password Output File    */
 #define ARG_LONG_LINES    'X'  /* print line # of the longest line   */
 #define ARG_DEBUG_MODE    'X'  /* turn on debug logic                */
 #define ARG_HEX           'x'  /* Hex   Mode                         */
@@ -532,6 +532,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I122 "I122:      *** PWNED:  %9ld\n"
 #define MSG_INFO_I123 "I123:      Not pwned:  %9ld\n"
 #define MSG_INFO_I124 "I124: Dir for Pwned Hash Files: %s\n"
+#define MSG_INFO_I125 "I125: Parameters changed, New Values: Pause Recs %ld - milliseconds %ld\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
@@ -945,6 +946,7 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define USG_MSG_ARG_OUT_FMT_DH           "\t%c%c n\t\t: Print the date using format 'n' where 'n' is:\n"
 #define USG_MSG_ARG_O_GLOBAL_HINT        "\t%c%c string\t: Output Format Hints\n"
 #define USG_MSG_ARG_PARM                 "\t%c%c file\t\t: Obtain some Column parameters from this file\n"
+#define USG_MSG_ARG_PARM_1               "\t%c%c file\t\t: File to Reset Parameters during runtime\n"
 #define USG_MSG_ARG_PATERN_FIL1          "\t%c%c kfile\t: Obtain search keys from 'kfile'\n"
 #define USG_MSG_ARG_PATERN_FILE          "\t%c%c file\t\t: Obtain search text from 'file'\n"
 #define USG_MSG_ARG_PAUSE                "\t%c%c n\t\t: Sleep for 'n' microseconds after each output line\n"
