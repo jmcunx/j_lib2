@@ -532,9 +532,10 @@ typedef unsigned long jm_counter;  /* allow 16 bit systems */
 #define MSG_INFO_I122 "I122:      *** PWNED:  %9ld\n"
 #define MSG_INFO_I123 "I123:      Not pwned:  %9ld\n"
 #define MSG_INFO_I124 "I124: Dir for Pwned Hash Files: %s\n"
-#define MSG_INFO_I125 "I125: Parameters changed, New Values:  Pause Recs %ld - milliseconds %ld\n"
+#define MSG_INFO_I125 "I125: Parameters changed,  New Values: Pause Recs %ld - milliseconds %ld\n"
 #define MSG_INFO_I126 "I126: Runtime Parameter Reset File:\n"
 #define MSG_INFO_I127 "I127: Parameters from default or Args: Pause Recs %ld - milliseconds %ld\n"
+#define MSG_INFO_I128 "I128: Parameters uploaded, New Values: Pause Recs %ld - milliseconds %ld\n"
 
 #define MSG_RPT_R01 "Column Statistics:\n"
 #define MSG_RPT_R02 "Data for Record # %ld:\n"
