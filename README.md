@@ -7,7 +7,7 @@ will no longer occur on GitHub.  Updates can be downloaded
 from my gemini capsule:
 
 * gemini://gem.sdf.org/jmccue/computer/repository.gmi
-* gemini://gem.sdf.org/jmccue/computer/repository.gmi (mirror)
+* gemini://sdf.org/jmccue/computer/repository.gmi (mirror)
 
 [See gemini wikipedia](https://en.wikipedia.org/wiki/Gemini_(protocol)#Software) for clients.
 
