@@ -12,7 +12,7 @@ from my gemini capsule:
 [See gemini wikipedia](https://en.wikipedia.org/wiki/Gemini_(protocol)#Software) for clients.
 
 Objects in this library goes back decades, some started out on MS-DOS
-and a little known Unix called IN/ix (a 16 but Unix on a proprietary
+and a little known Unix called IN/ix (a 16 bit Unix on a proprietary
 8086 clone).
 
 To build, execute gen\_make.sh to generate a Makefile for most
