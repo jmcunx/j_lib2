@@ -1,10 +1,11 @@
 ## jmc Library
 
-**Note:** Starting October 12 2023, Microsoft GitHub is forcing
-me to use my 2FA access to my repositories via my Cell Phone
-or some proprietary application.  So updates to this project
-will no longer occur on GitHub.  Updates can be downloaded
-from my gemini capsule:
+**Note:** Starting October 12 2023, Microsoft GitHub
+is forcing me to use 2FA to access to my repositories.
+Microsoft wants me to use my Cell Phone or some proprietary
+application for 2FA, email is not allowed.  So updates to
+this project will no longer occur on GitHub.  Updates and
+full Source can be downloaded from my Gemini Capsule:
 
 * gemini://gem.sdf.org/jmccue/computer/repository.gmi
 * gemini://sdf.org/jmccue/computer/repository.gmi (mirror)
